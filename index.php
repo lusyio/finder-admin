@@ -65,18 +65,32 @@
                                 <li class="pt-1 pb-1 mt-1 mb-1 item__sport">
                                     <span class="for-id mr-2">23</span>
                                     Легкая атлетика
+                                    <button class="btn btn-light change-item"><i class="fas fa-pencil-alt"></i></button>
+                                    <button class="btn btn-light delete-item"><i class="fas fa-minus-circle"></i></button>
                                 </li>
                                 <li class="pt-1 pb-1 mt-1 mb-1 item__sport">
                                     <span class="for-id mr-2">23</span>
                                     Йога
+                                    <button class="btn btn-light change-item"><i class="fas fa-pencil-alt"></i></button>
+
+                                    <button class="btn btn-light delete-item"><i class="fas fa-minus-circle"></i></button>
+
                                 </li>
                                 <li class="pt-1 pb-1 mt-1 mb-1 item__sport">
                                     <span class="for-id mr-2">23</span>
                                     Командные виды спорта
+                                    <button class="btn btn-light change-item"><i class="fas fa-pencil-alt"></i></button>
+
+                                    <button class="btn btn-light delete-item"><i class="fas fa-minus-circle"></i></button>
+
                                 </li>
                                 <li class="pt-1 pb-1 mt-1 mb-1 item__sport">
                                     <span class="for-id mr-2">23</span>
                                     Шпагат растяжка пилатес
+                                    <button class="btn btn-light change-item"><i class="fas fa-pencil-alt"></i></button>
+
+                                    <button class="btn btn-light delete-item"><i class="fas fa-minus-circle"></i></button>
+
                                 </li>
                             </ul>
                             <div class="row mt-3">
