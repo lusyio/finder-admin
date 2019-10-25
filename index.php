@@ -8,306 +8,412 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 
     <title>Finder Admin</title>
 </head>
 <body>
-
-<div class="container pt-5 pb-5">
-    <div class="row">
-        <div class="col">
-            <h1 class="text-center">
-                Finder Admin
-            </h1>
+<header class="site-header navbar-static-top navbar-light" role="banner">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container justify-content-between">
+            <a href="/" class="text-white h3">
+                Finder admin
+            </a>
+            <a class="navbar-brand btn btn-dark" href="#">Выйти <i class="fas fa-sign-out-alt"></i></a>
         </div>
-    </div>
-    <div class="row pt-5">
-        <div class="col-lg-10 offset-lg-1 col-12 offset-0 bg-light">
+    </nav>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 col-12 bg-dark">
+            <nav id="sidebar">
+                <ul class="list-unstyled components pt-5 mt-5">
+                    <li class="nav-item pb-2"><a class="text-white" href="#">Параметры</a>
+                    </li>
+                    <li class="nav-item pb-2"><a class="text-white" href="#">Профиль</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-10 col-12 bg-light pb-5" style="min-height: 100vh">
+            <!--            <div class="container pt-5">-->
+            <!--                <div class="row pt-3 pb-3">-->
+            <!--                    <div class="col">-->
+            <!--                        <h3 class="text-center">Профиль</h3>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!---->
+            <!--                <div class="row pt-3 pb-3 border-top">-->
+            <!--                    <div class="col">-->
+            <!--                        <div class="d-flex justify-content-between">-->
+            <!--                            <div>-->
+            <!--                                Город:-->
+            <!--                            </div>-->
+            <!--                            <div class="font-weight-bold">-->
+            <!--                                Название города-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="row pt-3 pb-3 border-top">-->
+            <!--                    <div class="col">-->
+            <!--                        <div class="d-flex justify-content-between">-->
+            <!--                            <div>-->
+            <!--                                Возраст:-->
+            <!--                            </div>-->
+            <!--                            <div class="font-weight-bold">-->
+            <!--                                28-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="col">-->
+            <!--                        <div class="d-flex justify-content-between">-->
+            <!--                            <div>-->
+            <!--                                Рост:-->
+            <!--                            </div>-->
+            <!--                            <div class="font-weight-bold">-->
+            <!--                                174 см-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="col">-->
+            <!--                        <div class="d-flex justify-content-between">-->
+            <!--                            <div>-->
+            <!--                                Телосложение:-->
+            <!--                            </div>-->
+            <!--                            <div class="font-weight-bold">-->
+            <!--                                XS-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!---->
+            <!--                <div class="row pt-3 pb-3 border-top">-->
+            <!--                    <div class="col">-->
+            <!--                        <div class="d-flex justify-content-between">-->
+            <!--                            <div>-->
+            <!--                                Цвет волос:-->
+            <!--                            </div>-->
+            <!--                            <div class="font-weight-bold">-->
+            <!--                                Пепельный-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="col">-->
+            <!--                        <div class="d-flex justify-content-between">-->
+            <!--                            <div>-->
+            <!--                                Цвет глаз:-->
+            <!--                            </div>-->
+            <!--                            <div class="font-weight-bold">-->
+            <!--                                Карие-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
 
-            <div class="row pt-3 pb-3 border-top">
+            <div class="row pt-5 pb-3">
                 <div class="col">
-                    <h3 class="text-center">Профиль</h3>
+                    <div class="row">
+                        <div class="col">
+                            ID
+                        </div>
+                    </div>
+                    <span class="for-id mr-2">23</span>
+                    <span class="h3" data-toggle="collapse" href="#collapseInterests">Интересы</span>
                 </div>
             </div>
-
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            Город:
-                        </div>
-                        <div class="font-weight-bold">
-                            Название города
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            Возраст:
-                        </div>
-                        <div class="font-weight-bold">
-                            28
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            Рост:
-                        </div>
-                        <div class="font-weight-bold">
-                            174 см
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            Телосложение:
-                        </div>
-                        <div class="font-weight-bold">
-                            XS
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            Цвет волос:
-                        </div>
-                        <div class="font-weight-bold">
-                            Пепельный
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            Цвет глаз:
-                        </div>
-                        <div class="font-weight-bold">
-                            Карие
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <h3 class="text-center">Интересы</h3>
-                </div>
-            </div>
-
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <h5 class="text-center">
+            <div class="collapse" id="collapseInterests">
+                <div class="row pt-3 pb-3 border-top">
+                    <div class="col">
+                        <span class="for-id mr-2">23</span>
+                        <span class="h5" data-toggle="collapse" href="#collapseSport">
                         Спорт
-                    </h5>
-                    <div class="d-flex text-center flex-wrap sport-container">
-                        <div class="border p-1 m-1 item__sport">Легкая атлетика</div>
-                        <div class="border p-1 m-1 item__sport">Йога</div>
-                        <div class="border p-1 m-1 item__sport">Командные виды спорта</div>
-                        <div class="border p-1 m-1 item__sport">Шпагат растяжка пилатес</div>
-                        <div class="border p-1 m-1 item__sport">Плавание</div>
-                        <div class="border p-1 m-1 item__sport">Теннис</div>
-                        <div class="border p-1 m-1 item__sport">Зимние виды спорта</div>
-                        <div class="border p-1 m-1 item__sport">Единоборства</div>
-                        <div class="border p-1 m-1 item__sport">Танцы</div>
-                        <div class="border p-1 m-1 item__sport">Workout</div>
-                        <div class="border p-1 m-1 item__sport">Фитнес</div>
-                        <div class="border p-1 m-1 item__sport">Гимнастика</div>
-                        <div class="border p-1 m-1 item__sport">Серфинг</div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                            <div class="input-group">
-                                <input id="sport" type="text" class="form-control" placeholder="Название">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="addSport">
-                                        Добавить
-                                    </button>
+                        </span>
+                        <button class="ml-2 btn btn-sm btn-light change">
+                            Изменить
+                        </button>
+                        <button class="ml-2 btn btn-sm btn-danger delete">
+                            Удалить
+                        </button>
+                        <div class="collapse" id="collapseSport">
+                            <ul class="sport-container list-unstyled">
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__sport">
+                                    <span class="for-id mr-2">23</span>
+                                    Легкая атлетика
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__sport">
+                                    <span class="for-id mr-2">23</span>
+                                    Йога
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__sport">
+                                    <span class="for-id mr-2">23</span>
+                                    Командные виды спорта
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__sport">
+                                    <span class="for-id mr-2">23</span>
+                                    Шпагат растяжка пилатес
+                                </li>
+                            </ul>
+                            <div class="row mt-3">
+                                <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                    <div class="input-group">
+                                        <input id="sport" type="text" class="form-control" placeholder="Название">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="addSport">
+                                                Добавить
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
 
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <h5 class="text-center">
+                <div class="row pt-3 pb-3 border-top">
+                    <div class="col">
+                        <span class="for-id mr-2">23</span>
+
+                        <span class="h5" data-toggle="collapse" href="#collapseMusic">
                         Музыка
-                    </h5>
-                    <div class="d-flex text-center flex-wrap music-container">
-                        <div class="border p-1 m-1 item__music">POP</div>
-                        <div class="border p-1 m-1 item__music">Меломан</div>
-                        <div class="border p-1 m-1 item__music">Шансон</div>
-                        <div class="border p-1 m-1 item__music">Классическая</div>
-                        <div class="border p-1 m-1 item__music">Электронная музыка</div>
-                        <div class="border p-1 m-1 item__music">Рок</div>
-                        <div class="border p-1 m-1 item__music">Рэп</div>
-                        <div class="border p-1 m-1 item__music">Металл</div>
-                        <div class="border p-1 m-1 item__music">Джаз</div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                            <div class="input-group">
-                                <input id="music" type="text" class="form-control" placeholder="Название">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="addMusic">
-                                        Добавить
-                                    </button>
+                    </span>
+                        <button class="ml-2 btn btn-sm btn-light change">
+                            Изменить
+                        </button>
+                        <button class="ml-2 btn btn-sm btn-danger delete">
+                            Удалить
+                        </button>
+                        <div class="collapse" id="collapseMusic">
+                            <ul class="list-unstyled music-container">
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__music"><span class="for-id mr-2">23</span>
+                                    POP
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__music"><span class="for-id mr-2">23</span>
+                                    Меломан
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__music"><span class="for-id mr-2">23</span>
+                                    Шансон
+                                </li>
+                            </ul>
+                            <div class="row mt-3">
+                                <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                    <div class="input-group">
+                                        <input id="music" type="text" class="form-control" placeholder="Название">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="addMusic">
+                                                Добавить
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <h5 class="text-center">
+                <div class="row pt-3 pb-3 border-top">
+                    <div class="col">
+                        <span class="for-id mr-2">23</span>
+                        <span class="h5" data-toggle="collapse" href="#collapseFilm">
                         Фильмы
-                    </h5>
-                    <div class="d-flex text-center flex-wrap film-container">
-                        <div class="border p-1 m-1 item__film">Комедия</div>
-                        <div class="border p-1 m-1 item__film">Триллер</div>
-                        <div class="border p-1 m-1 item__film">Мелодрама</div>
-                        <div class="border p-1 m-1 item__film">Фантастика</div>
-                        <div class="border p-1 m-1 item__film">Сериалы</div>
-                        <div class="border p-1 m-1 item__film">Ужасы</div>
-                        <div class="border p-1 m-1 item__film">Боевик</div>
-                        <div class="border p-1 m-1 item__film">Мультфильмы</div>
-                        <div class="border p-1 m-1 item__film">Драма</div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                            <div class="input-group">
-                                <input id="film" type="text" class="form-control" placeholder="Название">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="addFilm">
-                                        Добавить
-                                    </button>
+                    </span>
+                        <button class="ml-2 btn btn-sm btn-light change">
+                            Изменить
+                        </button>
+                        <button class="ml-2 btn btn-sm btn-danger delete">
+                            Удалить
+                        </button>
+                        <div class="collapse" id="collapseFilm">
+                            <ul class="list-unstyled film-container">
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__film"><span class="for-id mr-2">23</span>
+                                    Комедия
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__film"><span class="for-id mr-2">23</span>
+                                    Триллер
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__film"><span class="for-id mr-2">23</span>
+                                    Мелодрама
+                                </li>
+                            </ul>
+                            <div class="row mt-3">
+                                <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                    <div class="input-group">
+                                        <input id="film" type="text" class="form-control" placeholder="Название">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="addFilm">
+                                                Добавить
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <h5 class="text-center">
+                <div class="row pt-3 pb-3 border-top">
+                    <div class="col">
+                        <span class="for-id mr-2">23</span>
+
+                        <span class="h5" data-toggle="collapse" href="#collapseTravel">
                         Путешествия
-                    </h5>
-                    <div class="d-flex text-center flex-wrap travel-container">
-                        <div class="border p-1 m-1 item__travel">Культурно-познавательный туризм</div>
-                        <div class="border p-1 m-1 item__travel">Спортивный туризм</div>
-                        <div class="border p-1 m-1 item__travel">Приключенческий туризм</div>
-                        <div class="border p-1 m-1 item__travel">Деловой туризм</div>
-                        <div class="border p-1 m-1 item__travel">Тюлений отдых</div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                            <div class="input-group">
-                                <input id="travel" type="text" class="form-control" placeholder="Название">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="addTravel">
-                                        Добавить
-                                    </button>
+                    </span>
+                        <button class="ml-2 btn btn-sm btn-light change">
+                            Изменить
+                        </button>
+                        <button class="ml-2 btn btn-sm btn-danger delete">
+                            Удалить
+                        </button>
+                        <div class="collapse" id="collapseTravel">
+                            <ul class="list-unstyled travel-container">
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__travel"><span class="for-id mr-2">23</span>
+                                    Культурно-познавательный туризм
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__travel"><span class="for-id mr-2">23</span>
+                                    Спортивный туризм
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__travel"><span class="for-id mr-2">23</span>
+                                    Приключенческий туризм
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__travel"><span class="for-id mr-2">23</span>
+                                    Деловой туризм
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__travel"><span class="for-id mr-2">23</span>
+                                    Тюлений отдых
+                                </li>
+                            </ul>
+                            <div class="row mt-3">
+                                <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                    <div class="input-group">
+                                        <input id="travel" type="text" class="form-control" placeholder="Название">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="addTravel">
+                                                Добавить
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <h5 class="text-center">
+                <div class="row pt-3 pb-3 border-top">
+                    <div class="col">
+                        <span class="for-id mr-2">23</span>
+                        <span class="h5" data-toggle="collapse" href="#collapseWorkField">
                         Сфера деятельности
-                    </h5>
-                    <div class="d-flex text-center flex-wrap work-field-container">
-                        <div class="border p-1 m-1 item__work-field">Юриспруденция</div>
-                        <div class="border p-1 m-1 item__work-field">Предприниматель</div>
-                        <div class="border p-1 m-1 item__work-field">Промышленность</div>
-                        <div class="border p-1 m-1 item__work-field">Безопасность</div>
-                        <div class="border p-1 m-1 item__work-field">СМИ и Телевидение</div>
-                        <div class="border p-1 m-1 item__work-field">Лингвист</div>
-                        <div class="border p-1 m-1 item__work-field">Логистика, ВЭД, Торговля</div>
-                        <div class="border p-1 m-1 item__work-field">Спорт</div>
-                        <div class="border p-1 m-1 item__work-field">Гос. Служащий, политик</div>
-                        <div class="border p-1 m-1 item__work-field">Инженер</div>
-                        <div class="border p-1 m-1 item__work-field">Красота и мода</div>
-                        <div class="border p-1 m-1 item__work-field">Педагогика</div>
-                        <div class="border p-1 m-1 item__work-field">Строительство Архитектура</div>
-                        <div class="border p-1 m-1 item__work-field">Транспорт</div>
-                        <div class="border p-1 m-1 item__work-field">IT-технологии</div>
-                        <div class="border p-1 m-1 item__work-field">Студент</div>
-                        <div class="border p-1 m-1 item__work-field">Аграрная</div>
-                        <div class="border p-1 m-1 item__work-field">Маркетинг, реклама, PR</div>
-                        <div class="border p-1 m-1 item__work-field">Менеджмент и Управление</div>
-                        <div class="border p-1 m-1 item__work-field">Экономика Финансы</div>
-                        <div class="border p-1 m-1 item__work-field">Медицина</div>
-                        <div class="border p-1 m-1 item__work-field">Космос, авиация</div>
-                        <div class="border p-1 m-1 item__work-field">Военная</div>
-                        <div class="border p-1 m-1 item__work-field">Искусство и культура</div>
-                        <div class="border p-1 m-1 item__work-field">Сервис и туризм</div>
-                        <div class="border p-1 m-1 item__work-field">Наука</div>
-                        <div class="border p-1 m-1 item__work-field">Связанная с животными</div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                            <div class="input-group">
-                                <input id="workField" type="text" class="form-control" placeholder="Название">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="addWorkField">
-                                        Добавить
-                                    </button>
+                    </span>
+                        <button class="ml-2 btn btn-sm btn-light change">
+                            Изменить
+                        </button>
+                        <button class="ml-2 btn btn-sm btn-danger delete">
+                            Удалить
+                        </button>
+                        <div class="collapse" id="collapseWorkField">
+                            <ul class="list-unstyled work-field-container">
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__work-field"><span class="for-id mr-2">23</span>
+                                    Юриспруденция
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__work-field"><span class="for-id mr-2">23</span>
+                                    Предприниматель
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__work-field"><span class="for-id mr-2">23</span>
+                                    Промышленность
+                                </li>
+                            </ul>
+                            <div class="row mt-3">
+                                <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                    <div class="input-group">
+                                        <input id="workField" type="text" class="form-control" placeholder="Название">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="addWorkField">
+                                                Добавить
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <h5 class="text-center">
+                <div class="row pt-3 pb-3 border-top">
+                    <div class="col">
+                        <span class="for-id mr-2">23</span>
+                        <span class="h5" data-toggle="collapse" href="#collapseLeisure">
                         Досуг
-                    </h5>
-                    <div class="d-flex text-center flex-wrap leisure-container">
-                        <div class="border p-1 m-1 item__leisure">Чтение книг</div>
-                        <div class="border p-1 m-1 item__leisure">Релакс</div>
-                        <div class="border p-1 m-1 item__leisure">Вечеринки</div>
-                        <div class="border p-1 m-1 item__leisure">Автомобили</div>
-                        <div class="border p-1 m-1 item__leisure">Просмотр фильмов</div>
-                        <div class="border p-1 m-1 item__leisure">Встреча с друзьями</div>
-                        <div class="border p-1 m-1 item__leisure">Саморазвитие</div>
-                        <div class="border p-1 m-1 item__leisure">SPA</div>
-                        <div class="border p-1 m-1 item__leisure">Театр</div>
-                        <div class="border p-1 m-1 item__leisure">Вкусно поесть</div>
-                        <div class="border p-1 m-1 item__leisure">Ночная жизнь</div>
-                        <div class="border p-1 m-1 item__leisure">Мотоциклы</div>
-                        <div class="border p-1 m-1 item__leisure">Прогулки</div>
-                        <div class="border p-1 m-1 item__leisure">Видеоигры</div>
-                        <div class="border p-1 m-1 item__leisure">Медитация</div>
+                    </span>
+                        <button class="ml-2 btn btn-sm btn-light change">
+                            Изменить
+                        </button>
+                        <button class="ml-2 btn btn-sm btn-danger delete">
+                            Удалить
+                        </button>
+                        <div class="collapse" id="collapseLeisure">
+                            <ul class="list-unstyled leisure-container">
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__leisure"><span class="for-id mr-2">23</span>
+                                    Чтение книг
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__leisure"><span class="for-id mr-2">23</span>
+                                    Релакс
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__leisure"><span class="for-id mr-2">23</span>
+                                    Вечеринки
+                                </li>
+                            </ul>
+                            <div class="row mt-3">
+                                <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                    <div class="input-group">
+                                        <input id="leisure" type="text" class="form-control" placeholder="Название">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="addLeisure">
+                                                Добавить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                            <div class="input-group">
-                                <input id="leisure" type="text" class="form-control" placeholder="Название">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="addLeisure">
-                                        Добавить
-                                    </button>
+                </div>
+
+                <div class="row pt-3 pb-3 border-top">
+                    <div class="col">
+                        <span class="for-id mr-2">23</span>
+                        <span class="h5" data-toggle="collapse" href="#collapseBadHabit">
+                            Вредные привычки
+                        </span>
+                        <button class="ml-2 btn btn-sm btn-light change">
+                            Изменить
+                        </button>
+                        <button class="ml-2 btn btn-sm btn-danger delete">
+                            Удалить
+                        </button>
+                        <div class="collapse" id="collapseBadHabit">
+                            <ul class="list-unstyled bad-habit-container">
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__bad-habit"><span class="for-id mr-2">23</span>
+                                    Курю
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__bad-habit"><span class="for-id mr-2">23</span>
+                                    Не курю
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__bad-habit"><span class="for-id mr-2">23</span>
+                                    Выпиваю иногда
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__bad-habit"><span class="for-id mr-2">23</span>
+                                    Не пью
+                                </li>
+                            </ul>
+                            <div class="row mt-3">
+                                <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                    <div class="input-group">
+                                        <input id="badHabit" type="text" class="form-control" placeholder="Название">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="addBadHabit">
+                                                Добавить
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -317,415 +423,552 @@
 
             <div class="row pt-3 pb-3 border-top">
                 <div class="col">
-                    <h5 class="text-center">
-                        Вредные привычки
-                    </h5>
-                    <div class="d-flex text-center flex-wrap bad-habit-container">
-                        <div class="border p-1 m-1 item__bad-habit">Курю</div>
-                        <div class="border p-1 m-1 item__bad-habit">Не курю</div>
-                        <div class="border p-1 m-1 item__bad-habit">Выпиваю иногда</div>
-                        <div class="border p-1 m-1 item__bad-habit">Не пью</div>
+                    <span class="for-id mr-2">23</span>
+                    <span class="h3" data-toggle="collapse" href="#collapsePastime">Как провести время?</span>
+                </div>
+            </div>
+            <div class="collapse" id="collapsePastime">
+                <div class="row pt-3 pb-3 border-top">
+                    <div class="col">
+                        <span class="for-id mr-2">23</span>
+                        <span class="h5" data-toggle="collapse" href="#collapseSeason">
+                            Сезоны
+                        </span>
+                        <button class="ml-2 btn btn-sm btn-light change">
+                            Изменить
+                        </button>
+                        <button class="ml-2 btn btn-sm btn-danger delete">
+                            Удалить
+                        </button>
+                        <div class="collapse" id="collapseSeason">
+                            <ul class="list-unstyled season-container">
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__season"><span class="for-id mr-2">23</span>
+                                    В - всесезонно
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__season"><span class="for-id mr-2">23</span>
+                                    Л – лето
+                                </li>
+                                <li class="pt-1 pb-1 mt-1 mb-1 item__season"><span class="for-id mr-2">23</span>
+                                    З – зима
+                                </li>
+                            </ul>
+                            <div class="row mt-3">
+                                <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                    <div class="input-group">
+                                        <input id="season" type="text" class="form-control" placeholder="Название">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="addseason">
+                                                Добавить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                            <div class="input-group">
-                                <input id="badHabit" type="text" class="form-control" placeholder="Название">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="addBadHabit">
-                                        Добавить
+                </div>
+
+                <div class="row pt-3 pb-3 border-top all-season-container">
+                    <div class="col">
+                        <span class="for-id mr-2">23</span>
+                        <span class="h5" data-toggle="collapse" href="#collapseAllSeason">
+                            Вcесезон
+                        </span>
+                        <button class="ml-2 btn btn-sm btn-light change">
+                            Изменить
+                        </button>
+                        <button class="ml-2 btn btn-sm btn-danger delete">
+                            Удалить
+                        </button>
+                        <div class="collapse" id="collapseAllSeason">
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonFilm">
+                                        Кино
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
                                     </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <h3 class="text-center">Как провести время?</h3>
-                </div>
-            </div>
-
-            <div class="row pt-3 pb-3 border-top">
-                <div class="col">
-                    <h5 class="text-center">
-                        Сезоны
-                    </h5>
-                    <div class="d-flex text-center flex-wrap season-container">
-                        <div class="border p-1 m-1 item__season">В - всесезонно</div>
-                        <div class="border p-1 m-1 item__season">Л – лето</div>
-                        <div class="border p-1 m-1 item__season">З – зима</div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                            <div class="input-group">
-                                <input id="season" type="text" class="form-control" placeholder="Название">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="addseason">
-                                        Добавить
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
                                     </button>
+                                    <div class="collapse" id="collapseAllSeasonFilm">
+                                        <ul class="list-unstyled film-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__film-season"><span class="for-id mr-2">23</span>
+                                                Сходить в кино
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="filmSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addFilmSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonRomantic">
+                                        Романтика
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonRomantic">
+                                        <ul class="list-unstyled romantic-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__romantic-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Посмотреть в мощный
+                                                телескоп
+                                                на
+                                                звезды
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__romantic-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Прогуляться по городу
+                                                с
+                                                фотоаппаратом.
+                                                Пофоткать друг друга
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="romanticSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addRomanticSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonFood">
+                                        Еда и напитки
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonFood">
+                                        <ul class="list-unstyled food-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__food-season"><span class="for-id mr-2">23</span>
+                                                Покушать роллы и суши
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__food-season"><span class="for-id mr-2">23</span>
+                                                Попить кофе
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__food-season"><span class="for-id mr-2">23</span>
+                                                Продегустировать разное
+                                                пиво
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="foodSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addFoodSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonExtreme">
+                                        Экстрим
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonExtreme">
+                                        <ul class="list-unstyled extreme-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__extreme-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Прокатиться на
+                                                спортивном
+                                                авто
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__extreme-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Пострелять из
+                                                огнестрельного
+                                                оружия
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__extreme-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Покататься на картингах
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="extremeSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addЕxtremeSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonOther">
+                                        Другое
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonOther">
+                                        <ul class="list-unstyled other-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__other-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Посетить зоопарк
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__other-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить в планетарий
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__other-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить в аквапарк
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__other-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Слепить вазу на гончарном
+                                                круге
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="otherSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addOtherSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonTheatre">
+                                        Концерты, театры
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonTheatre">
+                                        <ul class="list-unstyled theatre-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__theatre-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить на концерт
+                                                классической
+                                                музыки
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__theatre-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить на мюзикл
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__theatre-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить на КВН/Stand up
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="theatreSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addTheatreSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonSelfdevelopment">
+                                        Саморазвитие
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonSelfdevelopment">
+                                        <ul class="list-unstyled selfdevelopment-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__selfdevelopment-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить на
+                                                тренинг
+                                                личностного роста
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__selfdevelopment-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Помедитировать/
+                                                Посетить
+                                                занятие по медитации
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="selfdevelopmentSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addSelfdevelopmentSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonMusic">
+                                        Музыка
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonMusic">
+                                        <ul class="list-unstyled music-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__music-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить в караоке
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__music-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Провести вечер в
+                                                джаз-баре
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="musicSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addMusicSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonBooks">
+                                        Книги и культура
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonBooks">
+                                        <ul class="list-unstyled books-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__books-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить на
+                                                художественную
+                                                выставку
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__books-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить на
+                                                поэтические чтения
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="booksSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addBooksSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonSport">
+                                        Спорт
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonSport">
+                                        <ul class="list-unstyled sport-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__sport-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Сходить на ипподром
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__sport-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Научиться кататься на
+                                                лошади
+                                            </li>
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__sport-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Попрыгать на
+                                                батутах
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="sportSeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addSportSeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col">
+                                    <span class="for-id mr-2">23</span>
+                                    <span class="h5" data-toggle="collapse" href="#collapseAllSeasonBeauty">
+                                        Мода и красота
+                                    </span>
+                                    <button class="ml-2 btn btn-sm btn-light change">
+                                        Изменить
+                                    </button>
+                                    <button class="ml-2 btn btn-sm btn-danger delete">
+                                        Удалить
+                                    </button>
+                                    <div class="collapse" id="collapseAllSeasonBeauty">
+                                        <ul class="list-unstyled beauty-season-container">
+                                            <li class="pt-1 pb-1 mt-1 mb-1 item__beauty-season"><span
+                                                        class="for-id mr-2">23</span>
+                                                Провести время в
+                                                SPA-центре
+                                            </li>
+                                        </ul>
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 offset-lg-3 col-12 offset-0">
+                                                <div class="input-group">
+                                                    <input id="beautySeason" type="text" class="form-control"
+                                                           placeholder="Название">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                                id="addBeautySeason">
+                                                            Добавить
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row pt-3 pb-3 border-top all-season-container">
-                <div class="col">
-                    <h4 class="text-center" data-toggle="collapse" href="#collapseAllSeason">
-                        Внесезон
-                    </h4>
-                    <div class="collapse" id="collapseAllSeason">
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Кино
-                                </h5>
-                                <div class="d-flex text-center flex-wrap film-season-container">
-                                    <div class="border p-1 m-1 item__film-season">Сходить в кино</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="filmSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addFilmSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Романтика
-                                </h5>
-                                <div class="d-flex text-center flex-wrap romantic-season-container">
-                                    <div class="border p-1 m-1 item__romantic-season">Посмотреть в мощный телескоп на
-                                        звезды
-                                    </div>
-                                    <div class="border p-1 m-1 item__romantic-season">Прогуляться по городу с
-                                        фотоаппаратом.
-                                        Пофоткать друг друга
-                                    </div>
-                                    <div class="border p-1 m-1 item__romantic-season">Кататься по ночному городу</div>
-                                    <div class="border p-1 m-1 item__romantic-season">Покушать вкусного мороженого</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="romanticSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addRomanticSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Еда и напитки
-                                </h5>
-                                <div class="d-flex text-center flex-wrap food-season-container">
-                                    <div class="border p-1 m-1 item__food-season">Покушать роллы и суши</div>
-                                    <div class="border p-1 m-1 item__food-season">Попить кофе</div>
-                                    <div class="border p-1 m-1 item__food-season">Продегустировать разное пиво</div>
-                                    <div class="border p-1 m-1 item__food-season">Поужинать в ресторане</div>
-                                    <div class="border p-1 m-1 item__food-season">Посетить ресторан с живой музыкой
-                                    </div>
-                                    <div class="border p-1 m-1 item__food-season">Посетить кулинарный мастер-класс</div>
-                                    <div class="border p-1 m-1 item__food-season">Поесть бургеров</div>
-                                    <div class="border p-1 m-1 item__food-season">Посетить дегустацию вин</div>
-                                    <div class="border p-1 m-1 item__food-season">Посетить заведение с видом на город
-                                    </div>
-                                    <div class="border p-1 m-1 item__food-season">Посетить бар</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="foodSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addFoodSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Экстрим
-                                </h5>
-                                <div class="d-flex text-center flex-wrap extreme-season-container">
-                                    <div class="border p-1 m-1 item__extreme-season">Прокатиться на спортивном авто
-                                    </div>
-                                    <div class="border p-1 m-1 item__extreme-season">Пострелять из огнестрельного
-                                        оружия
-                                    </div>
-                                    <div class="border p-1 m-1 item__extreme-season">Покататься на картингах</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="extremeSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addЕxtremeSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Другое
-                                </h5>
-                                <div class="d-flex text-center flex-wrap other-season-container">
-                                    <div class="border p-1 m-1 item__other-season">Посетить зоопарк</div>
-                                    <div class="border p-1 m-1 item__other-season">Сходить в планетарий</div>
-                                    <div class="border p-1 m-1 item__other-season">Сходить в аквапарк</div>
-                                    <div class="border p-1 m-1 item__other-season">Слепить вазу на гончарном круге</div>
-                                    <div class="border p-1 m-1 item__other-season">Посетить океанариум</div>
-                                    <div class="border p-1 m-1 item__other-season">Пройти мастер-класс по рисованию
-                                        песком
-                                    </div>
-                                    <div class="border p-1 m-1 item__other-season">Поплавать с дельфинами</div>
-                                    <div class="border p-1 m-1 item__other-season">Покурить кальян</div>
-                                    <div class="border p-1 m-1 item__other-season">Поиграть в приставку SonyP</div>
-                                    <div class="border p-1 m-1 item__other-season">Нарисовать свою картину</div>
-                                    <div class="border p-1 m-1 item__other-season">Сходить на танцевальную вечеринку
-                                    </div>
-                                    <div class="border p-1 m-1 item__other-season">Погулять вместе с собакой</div>
-                                    <div class="border p-1 m-1 item__other-season">Посетить выставку животных</div>
-                                    <div class="border p-1 m-1 item__other-season">Поиграть в настольные игры в кафе
-                                    </div>
-                                    <div class="border p-1 m-1 item__other-season">Пойти в цирк</div>
-                                    <div class="border p-1 m-1 item__other-season">Поиграть в мафию</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="otherSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addOtherSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Концерты, театры
-                                </h5>
-                                <div class="d-flex text-center flex-wrap theatre-season-container">
-                                    <div class="border p-1 m-1 item__theatre-season">Сходить на концерт классической
-                                        музыки
-                                    </div>
-                                    <div class="border p-1 m-1 item__theatre-season">Сходить на мюзикл</div>
-                                    <div class="border p-1 m-1 item__theatre-season">Сходить на КВН/Stand up</div>
-                                    <div class="border p-1 m-1 item__theatre-season">Посмотреть балет в большом театре
-                                    </div>
-                                    <div class="border p-1 m-1 item__theatre-season">Посетить оперу</div>
-                                    <div class="border p-1 m-1 item__theatre-season">Сходить в театр</div>
-                                    <div class="border p-1 m-1 item__theatre-season">Сходить на концерт живой музыки
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="theatreSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addTheatreSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Саморазвитие
-                                </h5>
-                                <div class="d-flex text-center flex-wrap selfdevelopment-season-container">
-                                    <div class="border p-1 m-1 item__selfdevelopment-season">Сходить на тренинг
-                                        личностного роста
-                                    </div>
-                                    <div class="border p-1 m-1 item__selfdevelopment-season">Помедитировать/ Посетить
-                                        занятие по медитации
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="selfdevelopmentSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addSelfdevelopmentSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Музыка
-                                </h5>
-                                <div class="d-flex text-center flex-wrap music-season-container">
-                                    <div class="border p-1 m-1 item__music-season">Сходить в караоке</div>
-                                    <div class="border p-1 m-1 item__music-season">Провести вечер в джаз-баре</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="musicSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addMusicSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Книги и культура
-                                </h5>
-                                <div class="d-flex text-center flex-wrap books-season-container">
-                                    <div class="border p-1 m-1 item__books-season">Сходить на художественную выставку
-                                    </div>
-                                    <div class="border p-1 m-1 item__books-season">Сходить на поэтические чтения</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="booksSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addBooksSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Спорт
-                                </h5>
-                                <div class="d-flex text-center flex-wrap sport-season-container">
-                                    <div class="border p-1 m-1 item__sport-season">Сходить на ипподром</div>
-                                    <div class="border p-1 m-1 item__sport-season">Научиться кататься на лошади</div>
-                                    <div class="border p-1 m-1 item__sport-season">Попрыгать на батутах</div>
-                                    <div class="border p-1 m-1 item__sport-season">Поиграть в пейнтбол</div>
-                                    <div class="border p-1 m-1 item__sport-season">Сходить на скалодром</div>
-                                    <div class="border p-1 m-1 item__sport-season">Покататься на серфе</div>
-                                    <div class="border p-1 m-1 item__sport-season">Поиграть в большой теннис</div>
-                                    <div class="border p-1 m-1 item__sport-season">Покататься на роликах</div>
-                                    <div class="border p-1 m-1 item__sport-season">Поиграть в боулинг</div>
-                                    <div class="border p-1 m-1 item__sport-season">Поиграть в бильярд</div>
-                                    <div class="border p-1 m-1 item__sport-season">Поиграть в керлинг</div>
-                                    <div class="border p-1 m-1 item__sport-season">Сходить на баскетбольную игру</div>
-                                    <div class="border p-1 m-1 item__sport-season">Сходить на футбольный матч</div>
-                                    <div class="border p-1 m-1 item__sport-season">Сходить на хоккейный матч</div>
-                                    <div class="border p-1 m-1 item__sport-season">Посетить спортивный матч</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="sportSeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addSportSeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-3 pb-3 border-top">
-                            <div class="col">
-                                <h5 class="text-center">
-                                    Мода и красота
-                                </h5>
-                                <div class="d-flex text-center flex-wrap beauty-season-container">
-                                    <div class="border p-1 m-1 item__beauty-season">Провести время в SPA-центре</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg-6 offset-lg-3 col-12 offset-0">
-                                        <div class="input-group">
-                                            <input id="beautySeason" type="text" class="form-control"
-                                                   placeholder="Название">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                        id="addBeautySeason">
-                                                    Добавить
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
 
-<!-- Optional JavaScript -->
+<footer class="footer mt-auto bg-secondary py-5">
+</footer>
+
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
