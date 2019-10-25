@@ -42,7 +42,7 @@
 </nav>
 <div class="main-content">
     <header class="site-header navbar-static-top navbar-light" role="banner">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-white">
             <div class="container justify-content-end">
                 <a class="navbar-brand btn btn-light" href="#">Создать отчет</a>
             </div>
@@ -50,7 +50,7 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 bg-light pb-5" style="min-height: 100vh">
+            <div class="col-12 bg-custom pb-5" style="min-height: 100vh">
                 <div class="row pt-5 pb-3">
                     <div class="col">
                         <div class="row">

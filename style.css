@@ -31,6 +31,15 @@
     padding-right: 0;
 }
 
+.bg-custom{
+    background: #F3F5F6;
+}
+
+.btn-light{
+    background: #F3F5F6;
+    border-color: #F3F5F6;
+}
+
 .left-menu {
     flex: 1;
     display: flex;
