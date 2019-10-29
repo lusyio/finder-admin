@@ -15,6 +15,7 @@ class Db
     {
         $dsn = 'mysql:dbname=' . $dbName . ';host=' . $host;
         $this->db = new \PDO($dsn, $user, $password);
+        $this->db->exec('SET CHARACTER SET utf8');
     }
 
     /**
