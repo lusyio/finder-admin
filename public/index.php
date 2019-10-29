@@ -26,6 +26,7 @@ $titles = [
     'categories' => 'Категории',
     'idtables' => 'Таблицы идентификаторов',
     'users' => 'Данные пользователей',
+    'dashboard' => 'Рабочий стол',
 ];
 
 // Шаблоны страниц: ключи массива - название страницы из $routes, значения - название шаблона
@@ -33,6 +34,7 @@ $layouts = [
     'categories' => 'base-layout',
     'idtables' => 'base-layout',
     '404' => 'base-layout',
+    'dashboard' => 'base-layout',
 ];
 
 // получаем строку запроса
