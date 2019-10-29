@@ -21,6 +21,7 @@
     text-align: center;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
+    white-space: normal;
 }
 
 .navbar-vertical .container-fluid{
@@ -59,4 +60,7 @@ header{
     box-shadow: 3px 6px 7px rgba(0, 0, 0, 0.08);
     z-index: 10;
     position: relative;
+}
+.dashed-bottom {
+    border-bottom: 1px dashed;
 }
