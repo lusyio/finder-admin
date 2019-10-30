@@ -36,6 +36,7 @@ $layouts = [
     'idtables' => 'base-layout',
     '404' => 'base-layout',
     'dashboard' => 'base-layout',
+    'users' => 'base-layout',
 ];
 
 // получаем строку запроса
