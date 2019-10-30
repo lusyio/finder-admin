@@ -15,6 +15,7 @@ $db = new Db($dbConfig['name'], $dbConfig['host'], $dbConfig['user'], $dbConfig[
 
 // Маршруты страниц: ключи массива окончание строки запроса, значения название страницы, используется далее при подключении файлов
 $routes = [
+    '/logout' => 'logout',
     '/dev/idtables' => 'idtables',
     '/dev/users' => 'users',
     '/categories' => 'categories',
@@ -88,7 +89,10 @@ if (file_exists($frontendPath)) {
 $content = ob_get_clean();
 
 // Выводим шаблон в который подставятся заголовок, стили, фронт и скрипты
-$layoutPath = '../app/layouts/' . $layouts[$page] . '.php';
+$layoutPath = '';
+if (key_exists($page, $layouts)) {
+    $layoutPath = '../app/layouts/' . $layouts[$page] . '.php';
+}
 if (file_exists($layoutPath)) {
     include $layoutPath;
 }
