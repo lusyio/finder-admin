@@ -1,6 +1,8 @@
 <?php
 if (isset($_POST['login']) && isset($_POST['pass'])) {
-    if ($_POST['login'] == '1234' && $_POST['pass'] == '1234') {
+    $appConfig = parse_ini_file("../app/config/app.ini");
+
+    if ($_POST['login'] == $appConfig['login'] && $_POST['pass'] == $appConfig['password']) {
         $_SESSION['auth'] = true;
         header('Refresh:0');
     } else {
