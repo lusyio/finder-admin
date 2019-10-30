@@ -22,22 +22,31 @@
         <div class="left-menu pt-5">
             <ul class="navbar-brand navbar-nav text-left">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/">
                         Главная страница
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/categories">
                         Управление категориями
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        Разработчикам
-                    </a>
+                    Разработчикам
+                    <ul>
+                        <li>
+                            <a class="nav-link" href="/dev/idtables">
+                                Таблицы соответствий
+                            </a>
+                            <a class="nav-link" href="/dev/users">
+                                Данные пользователей
+                            </a>
+                        </li>
+                    </ul>
+
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/logout">
                         Выход <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </li>

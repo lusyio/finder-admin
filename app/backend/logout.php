@@ -2,5 +2,5 @@
 if (isset($_SESSION)) {
     $_SESSION = [];
 }
-header('location: /');
+header('location: http://' . $_SERVER['HTTP_HOST']);
 exit;
