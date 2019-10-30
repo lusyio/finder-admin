@@ -77,20 +77,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script>
-    $(function () {
-        var location = window.location.href;
-        var cur_url = '/' + location;
-
-        $('.nav-link').each(function () {
-            var link = $(this).find('a').attr('href');
-
-            if (cur_url === link) {
-                $(this).addClass('active');
-            }
-        });
-    });
-</script>
 <?php echo $scripts ?>
 </body>
 </html>
