@@ -82,7 +82,7 @@
         var location = window.location.href;
         var cur_url = '/' + location;
 
-        $('.menu li').each(function () {
+        $('.nav-link').each(function () {
             var link = $(this).find('a').attr('href');
 
             if (cur_url === link) {
