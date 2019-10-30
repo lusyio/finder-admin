@@ -20,7 +20,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Имя</th>
                         <th scope="col">ID категории</th>
-                        <!--                        <th scope="col">Имя категории</th>-->
+                        <th scope="col">Имя категории</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -29,7 +29,7 @@
                             <th scope="row"><?= $interest['id'] ?></th>
                             <td><?= $interest['name'] ?></td>
                             <td><?= $interest['catId'] ?></td>
-                            <!--                            <td>--><? //= $interest['catName'] ?><!--</td>-->
+                            <td><?= $interest['catName'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

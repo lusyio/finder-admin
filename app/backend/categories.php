@@ -4,8 +4,8 @@ $interestItems = $db->allRows("SELECT interest_id AS id, interest_name AS name, 
 $interestList = [];
 foreach ($interestCategories as $row => $data) {
     $interestList[$data['id']] = [
-      'name' => $data['name'],
-      'items' => []
+        'name' => $data['name'],
+        'items' => []
     ];
 }
 foreach ($interestItems as $row => $data) {
@@ -19,8 +19,8 @@ $timeSpendItems = $db->allRows("SELECT timespend_id AS id, timespend_name AS nam
 $timeSpendList = [];
 foreach ($timeSpendCategories as $row => $data) {
     $timeSpendList[$data['id']] = [
-      'name' => $data['name'],
-      'items' => []
+        'name' => $data['name'],
+        'items' => []
     ];
 }
 foreach ($timeSpendItems as $row => $data) {

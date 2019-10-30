@@ -4,7 +4,6 @@
             <div class="col-12">
                 <p class="h1 text-center mt-3">Данные авторизации пользователей</p>
             </div>
-
         </div>
         <div class="row p-3">
             <div class="col-6">
@@ -22,7 +21,7 @@
                         <tr>
                             <th scope="row"><?= $row['phone'] ?></th>
                             <td><?= $row['code_value'] ?></td>
-                            <td><?= date('d.m.Y H:i:s',$row['sent_at']) ?></td>
+                            <td><?= date('d.m.Y H:i:s', $row['sent_at']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

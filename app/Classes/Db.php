@@ -24,7 +24,7 @@ class Db
      * @param array $params параметры запроса - массив значений для подстановки в подготовленный запрос
      * @return bool|\PDOStatement false в случае неудачи, объект подготовленного запроса в случае успеха
      */
-    public function query(string $sql, array $params = [])
+    public function query($sql, array $params = [], $returnResult = false)
     {
         $stmt = $this->db->prepare($sql);
         if (!empty($params)) {
@@ -36,7 +36,10 @@ class Db
                 }
             }
         }
-        $stmt->execute();
+        $result = $stmt->execute();
+        if ($returnResult) {
+            return $result;
+        }
         return $stmt;
     }
 

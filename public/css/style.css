@@ -68,3 +68,6 @@ header{
 .base-frame {
     min-height: 100vh;
 }
+li {
+    transition: background-color 500ms ease-in-out;
+}
