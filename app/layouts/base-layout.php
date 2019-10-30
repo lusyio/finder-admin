@@ -34,11 +34,13 @@
                 <li class="nav-item">
                     Разработчикам
                     <ul>
-                        <li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/dev/idtables">
                                 Таблицы соответствий
                             </a>
-                            <a class="nav-link" href="/dev/users">
+                        <li class="nav-item">
+                        </li>
+                        <a class="nav-link" href="/dev/users">
                                 Данные пользователей
                             </a>
                         </li>
