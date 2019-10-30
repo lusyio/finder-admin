@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12 bg-custom pb-5" style="min-height: calc(100vh - 57.6px)">
+    <div class="col-12 bg-custom pb-5">
         <div class="row">
             <div class="col-12">
                 <p class="h1 text-center mt-3">Данные авторизации пользователей</p>

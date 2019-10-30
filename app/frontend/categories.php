@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12 bg-custom pb-5" style="min-height: calc(100vh - 57.6px)">
+    <div class="col-12 bg-custom pb-5">
         <div class="row">
             <div class="alert alert-secondary w-75 mb-0 ml-auto mr-auto mt-3" role="alert">
                 Названия здесь являются вспомогательными для разработчиков, отображаемые в приложения названия должны
