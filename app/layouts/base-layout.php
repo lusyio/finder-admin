@@ -33,7 +33,7 @@
                 </li>
                 <li class="nav-item">
                     Разработчикам
-                    <ul>
+                    <ul style="list-style: none;">
                         <li class="nav-item">
                             <a class="nav-link" href="/dev/idtables">
                                 Таблицы соответствий
