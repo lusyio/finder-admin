@@ -13,9 +13,8 @@ class Db
      */
     public function __construct($dbName, $host, $user, $password)
     {
-        $dsn = 'mysql:dbname=' . $dbName . ';host=' . $host;
+        $dsn = 'mysql:dbname=' . $dbName . ';host=' . $host . ';charset=utf8';
         $this->db = new \PDO($dsn, $user, $password);
-        $this->db->exec('SET CHARACTER SET utf8');
     }
 
     /**
