@@ -41,8 +41,11 @@
                         <li class="nav-item">
                         </li>
                         <a class="nav-link" href="/dev/users">
-                                Данные пользователей
-                            </a>
+                            Данные пользователей
+                        </a>
+                        <a class="nav-link" href="/dev/photos">
+                            Загруженные фотографии
+                        </a>
                         </li>
                     </ul>
 
@@ -57,13 +60,13 @@
     </div>
 </nav>
 <div class="main-content">
-<!--    <header class="site-header navbar-static-top navbar-light" role="banner">-->
-<!--        <nav class="navbar navbar-light bg-white">-->
-<!--            <div class="container justify-content-end">-->
-<!--                <a class="navbar-brand btn btn-light" href="#"></a>-->
-<!--            </div>-->
-<!--        </nav>-->
-<!--    </header>-->
+    <!--    <header class="site-header navbar-static-top navbar-light" role="banner">-->
+    <!--        <nav class="navbar navbar-light bg-white">-->
+    <!--            <div class="container justify-content-end">-->
+    <!--                <a class="navbar-brand btn btn-light" href="#"></a>-->
+    <!--            </div>-->
+    <!--        </nav>-->
+    <!--    </header>-->
     <div class="container-fluid" id="container">
         <?php echo $content ?>
     </div>

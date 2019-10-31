@@ -18,6 +18,7 @@ $routes = [
     '/logout' => 'logout',
     '/dev/idtables' => 'idtables',
     '/dev/users' => 'users',
+    '/dev/photos' => 'photos',
     '/categories' => 'categories',
     '/' => 'dashboard'
 ];
@@ -28,6 +29,7 @@ $titles = [
     'idtables' => 'Таблицы идентификаторов',
     'users' => 'Данные пользователей',
     'dashboard' => 'Рабочий стол',
+    'photos' => 'Фотографии пользователей',
 ];
 
 // Шаблоны страниц: ключи массива - название страницы из $routes, значения - название шаблона
@@ -37,6 +39,7 @@ $layouts = [
     '404' => 'base-layout',
     'dashboard' => 'base-layout',
     'users' => 'base-layout',
+    'photos' => 'base-layout',
 ];
 
 // получаем строку запроса
