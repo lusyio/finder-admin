@@ -24,7 +24,7 @@
                             <td><?= $row['user_id'] ?></td>
                             <td><?= date('d.m.Y H:i:s', $row['upload_date']) ?></td>
                             <td><?= $row['photo_order'] ?></td>
-                            <td><?= $row['photo_url'] ?></td>
+                            <td><a href="http://http://176.119.156.145/<?= $row['photo_url'] ?>" target="_blank"><?= $row['photo_url'] ?></a></td>
 
                         </tr>
                     <?php endforeach; ?>
