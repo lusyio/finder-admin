@@ -18,6 +18,7 @@ $routes = [
     '/logout' => 'logout',
     '/dev/idtables' => 'idtables',
     '/dev/users' => 'users',
+    '/dev/user' => 'user',
     '/dev/photos' => 'photos',
     '/categories' => 'categories',
     '/' => 'dashboard'
@@ -28,6 +29,7 @@ $titles = [
     'categories' => 'Категории',
     'idtables' => 'Таблицы идентификаторов',
     'users' => 'Данные пользователей',
+    'user' => 'Анкета пользователя',
     'dashboard' => 'Рабочий стол',
     'photos' => 'Фотографии пользователей',
 ];
@@ -39,11 +41,12 @@ $layouts = [
     '404' => 'base-layout',
     'dashboard' => 'base-layout',
     'users' => 'base-layout',
+    'user' => 'base-layout',
     'photos' => 'base-layout',
 ];
 
 // получаем строку запроса
-$uri = $_SERVER['REQUEST_URI'];
+$uri = explode('?', $_SERVER['REQUEST_URI'])[0];
 
 // Ищем совпадение строки запроса с ключом массива $routes и присваиваем значение переменной названия страницы,
 // если не найдено, то название страницы 404

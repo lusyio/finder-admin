@@ -41,7 +41,10 @@
                         <li class="nav-item">
                         </li>
                         <a class="nav-link" href="/dev/users">
-                            Данные пользователей
+                            Коды и токены
+                        </a>
+                        <a class="nav-link" href="/dev/user">
+                            Анкеты пользователей
                         </a>
                         <a class="nav-link" href="/dev/photos">
                             Загруженные фотографии
