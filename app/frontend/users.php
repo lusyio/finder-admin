@@ -7,7 +7,7 @@
         </div>
         <div class="row p-3">
             <div class="col-6">
-                <p class="h3 pl-5">Смс-коды</p>
+                <p class="h3 pl-5">Смс-коды регистрации</p>
                 <table class="table table-striped mt-3">
                     <thead>
                     <tr>
@@ -47,5 +47,27 @@
                 </table>
             </div>
         </div>
-    </div>
+        <div class="row p-3">
+            <div class="col-6">
+                <p class="h3 pl-5">Смс-коды восстановления пароля</p>
+                <table class="table table-striped mt-3">
+                    <thead>
+                    <tr>
+                        <th scope="col">Телефон / email</th>
+                        <th scope="col">Код</th>
+                        <th scope="col">Время</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($restoreCodes as $row): ?>
+                        <tr>
+                            <th scope="row"><?= $row['login'] ?></th>
+                            <td><?= $row['code_value'] ?></td>
+                            <td><?= date('d.m.Y H:i:s', $row['sent_at']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 </div>
