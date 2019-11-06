@@ -12,7 +12,7 @@ function decodeBitString($bitString)
     $result = [];
     for ($i = $length - 1; $i >= 0; $i--) {
         if ($bitString[$i] == 1) {
-            $result[] = $i;
+            $result[] = $length - $i;
         }
     }
     return $result;
