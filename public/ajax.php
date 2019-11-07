@@ -121,3 +121,21 @@ if ($_POST['action'] == 'addCategory') {
         exit;
     }
 }
+
+if ($_POST['action'] == 'addCity') {
+    $cityName = filter_var($_POST['cityName'], FILTER_SANITIZE_STRING);
+    $cityName = trim($cityName);
+    $regionId = filter_var($_POST['regionId'], FILTER_SANITIZE_NUMBER_INT);
+    if ($db->firstValue("SELECT COUNT(*) FROM regions_enum WHERE region_id = :regionId", [':regionId' => $regionId]) < 1) {
+        echo 'region not found';
+    } else {
+        $db->query("INSERT INTO cities_enum(city_name, region_id) VALUES (:cityName, :regionId)", ['cityName' => $cityName, ':regionId' => $regionId]);
+        $newCityId = $db->getLastId();
+        $result = [
+            'status' => 'ok',
+            'id' => $newCityId
+        ];
+        echo json_encode($result);
+    }
+}
+

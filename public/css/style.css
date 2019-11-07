@@ -19,8 +19,6 @@
 .navbar-vertical.navbar-expand-md .navbar-brand {
     display: block;
     text-align: center;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
     white-space: normal;
 }
 
@@ -70,4 +68,9 @@ header{
 }
 li {
     transition: background-color 500ms ease-in-out;
+}
+
+.invalid {
+    border-width: 1px;
+    border-color: red;
 }

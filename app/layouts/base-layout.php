@@ -19,17 +19,27 @@
         <a href="/" class="h3 text-dark nav-link pl-2">
             Finder admin
         </a>
-        <div class="left-menu pt-5">
+        <div class="left-menu">
             <ul class="navbar-brand navbar-nav text-left">
                 <li class="nav-item">
                     <a class="nav-link" href="/">
                         Главная страница
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/categories">
-                        Управление категориями
-                    </a>
+                <li class="nav-link">
+                    Управление приложением
+                    <ul style="list-style: none;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/categories">
+                                Категории
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cities">
+                                Города
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-link">
                     Разработчикам
@@ -38,20 +48,22 @@
                             <a class="nav-link" href="/dev/idtables">
                                 Таблицы соответствий
                             </a>
-                        <li class="nav-item">
                         </li>
-                        <a class="nav-link" href="/dev/users">
-                            Коды и токены
-                        </a>
-                        <a class="nav-link" href="/dev/user">
-                            Анкеты пользователей
-                        </a>
-                        <a class="nav-link" href="/dev/photos">
-                            Загруженные фотографии
-                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dev/codes">
+                                Коды и токены
+                            </a>
                         </li>
                     </ul>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="/dev/user">
+                        Анкеты пользователей
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dev/photos">
+                        Загруженные фотографии
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">

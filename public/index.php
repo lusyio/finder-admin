@@ -17,10 +17,11 @@ $db = new Db($dbConfig['name'], $dbConfig['host'], $dbConfig['user'], $dbConfig[
 $routes = [
     '/logout' => 'logout',
     '/dev/idtables' => 'idtables',
-    '/dev/users' => 'users',
+    '/dev/codes' => 'codes',
     '/dev/user' => 'user',
     '/dev/photos' => 'photos',
     '/categories' => 'categories',
+    '/cities' => 'cities',
     '/' => 'dashboard'
 ];
 
@@ -28,10 +29,11 @@ $routes = [
 $titles = [
     'categories' => 'Категории',
     'idtables' => 'Таблицы идентификаторов',
-    'users' => 'Данные пользователей',
+    'codes' => 'Коды, токены',
     'user' => 'Анкета пользователя',
     'dashboard' => 'Рабочий стол',
     'photos' => 'Фотографии пользователей',
+    'cities' => 'Города',
 ];
 
 // Шаблоны страниц: ключи массива - название страницы из $routes, значения - название шаблона
@@ -40,9 +42,10 @@ $layouts = [
     'idtables' => 'base-layout',
     '404' => 'base-layout',
     'dashboard' => 'base-layout',
-    'users' => 'base-layout',
+    'codes' => 'base-layout',
     'user' => 'base-layout',
     'photos' => 'base-layout',
+    'cities' => 'base-layout',
 ];
 
 // получаем строку запроса
