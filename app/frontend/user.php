@@ -67,6 +67,14 @@
                             <th scope="row">Город</th>
                             <td><?= $userData['user_city'] ?></td>
                         </tr>
+                        <tr>
+                            <th scope="row">Широта</th>
+                            <td><?= $userData['lat'] ?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Долгота</th>
+                            <td><?= $userData['lng'] ?></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
