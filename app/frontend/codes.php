@@ -69,5 +69,28 @@
                     </tbody>
                 </table>
             </div>
+            <div class="col-6">
+                <p class="h3 pl-5">Смс-коды изменения телефона</p>
+                <table class="table table-striped mt-3">
+                    <thead>
+                    <tr>
+                        <th scope="col">Телефон</th>
+                        <th scope="col">ID ользователя</th>
+                        <th scope="col">Код</th>
+                        <th scope="col">Время</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($updateCodes as $row): ?>
+                        <tr>
+                            <th scope="row"><?= $row['phone'] ?></th>
+                            <th scope="row"><?= $row['user_id'] ?></th>
+                            <td><?= $row['code_value'] ?></td>
+                            <td><?= date('d.m.Y H:i:s', $row['sent_at']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>

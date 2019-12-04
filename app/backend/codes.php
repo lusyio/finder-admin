@@ -3,3 +3,4 @@
 $usersAuth = $db->allRows("SELECT auth_id, user_id, auth_token, generated_at FROM user_auth");
 $registerCodes = $db->allRows("SELECT code_id, code_value, sent_at, phone FROM register_codes");
 $restoreCodes = $db->allRows("SELECT code_id, code_value, sent_at, login FROM restore_codes");
+$updateCodes = $db->allRows("SELECT code_id, code_value, sent_at, phone, user_id FROM update_codes");
