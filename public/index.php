@@ -22,6 +22,7 @@ $routes = [
     '/dev/photos' => 'photos',
     '/categories' => 'categories',
     '/cities' => 'cities',
+    '/areas' => 'areas',
     '/' => 'dashboard'
 ];
 
@@ -34,6 +35,7 @@ $titles = [
     'dashboard' => 'Рабочий стол',
     'photos' => 'Фотографии пользователей',
     'cities' => 'Города',
+    'areas' => 'Зоны геолокации',
 ];
 
 // Шаблоны страниц: ключи массива - название страницы из $routes, значения - название шаблона
@@ -46,6 +48,7 @@ $layouts = [
     'user' => 'base-layout',
     'photos' => 'base-layout',
     'cities' => 'base-layout',
+    'areas' => 'base-layout',
 ];
 
 // получаем строку запроса
