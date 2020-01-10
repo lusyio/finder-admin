@@ -76,9 +76,31 @@ foreach ($areaPointsDb as $areaPoint) {
             disableDefaultUI: true,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-
+        var styledMapType = new google.maps.StyledMapType(
+            [
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "weight": 2.5
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                }
+            ],
+            {name: 'Styled Map'});
         map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
         drawingManager = new google.maps.drawing.DrawingManager({
             // drawingMode: google.maps.drawing.OverlayType.POLYGON,
             drawingControl: true,
@@ -152,6 +174,7 @@ foreach ($areaPointsDb as $areaPoint) {
                 setSelection(newShape);
             }
         });
+        google.maps.event.addListener(drawingManager, 'markercomplete', function (polygon) {console.log(polygon)});
         google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
             let coordinates = [];
             polygon.getPath().forEach(function (latLng, i) {
@@ -207,7 +230,6 @@ foreach ($areaPointsDb as $areaPoint) {
                 infoWindow.close(map);
             });
         }
-
         function attachPolygonEditEvent(polygon) {
             polygon.addListener('rightclick', function (e) {
                 if (e.vertex != null) {
@@ -226,13 +248,22 @@ foreach ($areaPointsDb as $areaPoint) {
                 } while (polygon.title == '');
             });
             polygon.getPaths().forEach(function(path, index){
+                google.maps.event.clearListeners(path, 'insert_at');
+                google.maps.event.clearListeners(path, 'remove_at');
+                google.maps.event.clearListeners(path, 'set_at');
 
-                google.maps.event.addListener(path, 'insert_at', function(){
+                google.maps.event.addListener(path, 'insert_at', function(e){
                     let coordinates = [];
                     polygon.getPath().forEach(function (latLng, i) {
-                        coordinates.push([latLng.lat(), latLng .lng()]);
+                        coordinates.push(latLng);
                     });
-                    updateArea(polygon.areaId, coordinates);
+                    coordinates = connectWithNearestPoint(polygon, coordinates, e);
+
+                    let simpleCoordinates = [];
+                    coordinates.forEach(function (latLng, i) {
+                        simpleCoordinates.push([latLng.lat(), latLng .lng()]);
+                    });
+                    updateArea(polygon.areaId, simpleCoordinates);
                 });
 
                 google.maps.event.addListener(path, 'remove_at', function(){
@@ -248,40 +279,7 @@ foreach ($areaPointsDb as $areaPoint) {
                     polygon.getPath().forEach(function (latLng, i) {
                         coordinates.push(latLng);
                     });
-                    let newPoint = coordinates[e];
-                    // перебираем массив с полигонами
-                    polygons.forEach(function (p) {
-                        // проверяем входит ли эта точка в какой-либо полигон
-                        if (polygon.areaId === p.areaId) {
-                            return;
-                        }
-                        if (google.maps.geometry.poly.containsLocation(newPoint, p)) {
-                            // если входит то находим ближайшую вершину
-                            let nearestPoint;
-                            let currentDistance;
-                            p.getPath().forEach(function (point, i) {
-                                if (nearestPoint === undefined) {
-                                    nearestPoint = point;
-                                    currentDistance = getDistance(point, newPoint);
-                                } else {
-                                    let newDistance = getDistance(point, newPoint);
-                                    if (newDistance < currentDistance) {
-                                        nearestPoint = point;
-                                        currentDistance = newDistance;
-                                    }
-                                }
-                            });
-                            // если координаты отличаются не более чем заданное значение то
-                            // присваиваем текущей точке координаты найденной точки
-
-                            if (currentDistance > 0 && currentDistance < 5000 && nearestPoint) {
-                                coordinates[e] = nearestPoint;
-                                polygon.setPath(coordinates);
-                                attachPolygonEditEvent(polygon);
-                            }
-
-                        }
-                    });
+                    coordinates = connectWithNearestPoint(polygon, coordinates, e);
 
                     let simpleCoordinates = [];
                     coordinates.forEach(function (latLng, i) {
@@ -290,6 +288,45 @@ foreach ($areaPointsDb as $areaPoint) {
                     updateArea(polygon.areaId, simpleCoordinates);
                 });
             });
+        }
+
+        function connectWithNearestPoint(polygon, coordinates, e) {
+            let newPoint = coordinates[e];
+
+            // перебираем массив с полигонами
+            polygons.forEach(function (p) {
+                // проверяем входит ли эта точка в какой-либо полигон
+                if (polygon.areaId === p.areaId) {
+                    return;
+                }
+                if (google.maps.geometry.poly.containsLocation(newPoint, p)) {
+                    // если входит то находим ближайшую вершину
+                    let nearestPoint;
+                    let currentDistance;
+                    p.getPath().forEach(function (point, i) {
+                        if (nearestPoint === undefined) {
+                            nearestPoint = point;
+                            currentDistance = getDistance(point, newPoint);
+                        } else {
+                            let newDistance = getDistance(point, newPoint);
+                            if (newDistance < currentDistance) {
+                                nearestPoint = point;
+                                currentDistance = newDistance;
+                            }
+                        }
+                    });
+                    // если координаты отличаются не более чем заданное значение то
+                    // присваиваем текущей точке координаты найденной точки
+
+                    if (currentDistance > 0 && currentDistance < 5000 && nearestPoint) {
+                        coordinates[e] = nearestPoint;
+                        polygon.setPath(coordinates);
+                        attachPolygonEditEvent(polygon);
+                    }
+
+                }
+            });
+            return coordinates;
         }
 
         function updateArea(areaId, coordinates) {
