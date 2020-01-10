@@ -124,7 +124,7 @@ foreach ($areaPointsDb as $areaPoint) {
             attachPolygonEditEvent(newPolys[id]);
             google.maps.event.addListener(newPolys[id], 'rightclick', function (mev) {
                 if (mev.vertex != null) {
-                    this.getPath().removeAt(mev.vertex);
+                    // this.getPath().removeAt(mev.vertex);
                 }
             });
         }
