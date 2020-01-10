@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if (!isset($_SESSION) || !isset($_SESSION['auth']) || !$_SESSION['auth']) {
     header('HTTP/1.0 403 Forbidden');
@@ -137,5 +138,116 @@ if ($_POST['action'] == 'addCity') {
         ];
         echo json_encode($result);
     }
+}
+
+if ($_POST['action'] == 'addArea') {
+    if (!isset($_POST['areaName'])) {
+        echo 'Name is required';
+        exit;
+    }
+    if(!isset($_POST['points'])) {
+        echo 'Coordinates is required';
+        exit;
+    }
+    $areaName = filter_var($_POST['areaName'], FILTER_SANITIZE_STRING);
+    $areaName = trim($areaName);
+    $points = json_decode($_POST['points']);
+    if (!is_array($points) || count($points) < 3) {
+        echo 'Wrong coordinates';
+        exit;
+    }
+    //добавить имя зоны,
+    $result = $db->query("INSERT INTO areas(area_name) VALUES (:areaName)", ['areaName' => $areaName]);
+    $areaId = $db->getLastId();
+    // добавить точки зоны
+    foreach ($points as $point) { //point[0] - lat, point[1] - lng
+        $db->query("INSERT INTO area_points(area_id, lat, lng) VALUES (:areaId, :lat, :lng)", ['areaId' => $areaId, ':lat' => $point[0], ':lng' => $point[1]]);
+    }
+    $result = ['status' => 'ok', 'areaId' => $areaId];
+    echo json_encode($result);
+    exit;
+}
+
+if ($_POST['action'] == 'updateAreaCoords') {
+    if (!isset($_POST['areaId'])) {
+        echo 'Name is required';
+        exit;
+    }
+    if(!isset($_POST['points'])) {
+        echo 'Coordinates is required';
+        exit;
+    }
+    $areaId = intval($_POST['areaId']);
+    $points = json_decode($_POST['points']);
+    if (!is_array($points) || count($points) < 3) {
+        echo 'Wrong coordinates';
+        exit;
+    }
+    // добавить точки зоны
+    $db->query("DELETE FROM area_points WHERE area_id = :areaId", ['areaId' => $areaId]);
+    foreach ($points as $point) { //point[0] - lat, point[1] - lng
+        $db->query("INSERT INTO area_points(area_id, lat, lng) VALUES (:areaId, :lat, :lng)", ['areaId' => $areaId, ':lat' => $point[0], ':lng' => $point[1]]);
+    }
+    echo 'ok';
+    exit;
+}
+
+if ($_POST['action'] == 'updateAreaName') {
+    if (!isset($_POST['areaId'])) {
+        echo 'Name is required';
+        exit;
+    }
+    if(!isset($_POST['areaName'])) {
+        echo 'Name is required';
+        exit;
+    }
+    $areaId = intval($_POST['areaId']);
+    $areaName = filter_var($_POST['areaName'], FILTER_SANITIZE_STRING);
+    $areaName = trim($areaName);
+    // добавить точки зоны
+    $db->query("UPDATE areas SET area_name = :areaName WHERE area_id = :areaId", ['areaId' => $areaId, ':areaName' => $areaName]);
+    $result = ['status' => 'ok'];
+    echo json_encode($result);
+    exit;
+}
+if ($_POST['action'] == 'deleteArea') {
+    if (!isset($_POST['areaId'])) {
+        echo 'Name is required';
+        exit;
+    }
+    $areaId = intval($_POST['areaId']);
+    $db->query("DELETE FROM area_points WHERE area_id = :areaId", ['areaId' => $areaId]);
+    $db->query("DELETE FROM areas WHERE area_id = :areaId", ['areaId' => $areaId]);
+    $result = ['status' => 'ok'];
+    echo json_encode($result);
+    exit;
+}
+
+if ($_POST['action'] == 'updateUserLocation') {
+    require_once '../app/Classes/PolyUtil.php';
+    $areas = [];
+    $areasFromDb = $db->allRows("SELECT point_id, area_id, lat, lng FROM area_points ORDER BY point_id");
+    foreach ($areasFromDb as $point) {
+        if (!key_exists($point['area_id'], $areas)) {
+            $areas[$point['area_id']] = [];
+        }
+        $areas[$point['area_id']][] = ['lat' => $point['lat'], 'lng' => $point['lng']];
+    }
+    $userLocations = $db->allRows("SELECT user_id, lat, lng FROM user_data");
+    foreach ($userLocations as $user) {
+        if (is_null($user['lat']) || is_null($user['lng'])) {
+            continue;
+        }
+        $userLocation = ['lat' => $user['lat'], 'lng' => $user['lng']];
+        foreach ($areas as $areaId => $areaPoints) {
+            if (PolyUtil::containsLocation($userLocation, $areaPoints)) {
+                $db->query("UPDATE user_data SET user_city = :cityId WHERE user_id = :userId", [':cityId' => $areaId, ':userId' => $user['user_id']]);
+                continue 2;
+            }
+        }
+    }
+    $result = ['status' => 'ok'];
+    echo json_encode($result);
+    exit;
 }
 
