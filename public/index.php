@@ -20,6 +20,8 @@ $routes = [
     '/dev/codes' => 'codes',
     '/dev/user' => 'user',
     '/dev/photos' => 'photos',
+    '/dev/socket' => 'socket',
+    '/dev/push' => 'push',
     '/categories' => 'categories',
     '/cities' => 'cities',
     '/areas' => 'areas',
@@ -36,6 +38,8 @@ $titles = [
     'photos' => 'Фотографии пользователей',
     'cities' => 'Города',
     'areas' => 'Зоны геолокации',
+    'socket' => 'Тестирование веб-сокетов',
+    'push' => 'Тестирование push-уведомлений',
 ];
 
 // Шаблоны страниц: ключи массива - название страницы из $routes, значения - название шаблона
@@ -49,6 +53,8 @@ $layouts = [
     'photos' => 'base-layout',
     'cities' => 'base-layout',
     'areas' => 'base-layout',
+    'socket' => 'base-layout',
+    'push' => 'base-layout',
 ];
 
 // получаем строку запроса

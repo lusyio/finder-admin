@@ -28,27 +28,6 @@
                 </table>
             </div>
             <div class="col-6">
-                <p class="h3 pl-5">Токены авторизации</p>
-                <table class="table table-striped mt-3">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID пользователя</th>
-                        <th scope="col">Токен</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($usersAuth as $row): ?>
-                        <tr>
-                            <th scope="row"><?= $row['user_id'] ?></th>
-                            <td><?= $row['auth_token'] ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row p-3">
-            <div class="col-6">
                 <p class="h3 pl-5">Смс-коды восстановления пароля</p>
                 <table class="table table-striped mt-3">
                     <thead>
@@ -69,6 +48,8 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="row p-3">
             <div class="col-6">
                 <p class="h3 pl-5">Смс-коды изменения телефона</p>
                 <table class="table table-striped mt-3">
@@ -87,6 +68,31 @@
                             <th scope="row"><?= $row['user_id'] ?></th>
                             <td><?= $row['code_value'] ?></td>
                             <td><?= date('d.m.Y H:i:s', $row['sent_at']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row p-3">
+            <div class="col-12">
+                <p class="h3 pl-5">Токены авторизации</p>
+                <table class="table table-striped table-responsive mt-3">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID пользователя</th>
+                        <th scope="col">Токен авторизации</th>
+                        <th scope="col">Токен сокетов</th>
+                        <th scope="col">Токен FCM</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($usersAuth as $row): ?>
+                        <tr>
+                            <th scope="row"><?= $row['user_id'] ?></th>
+                            <td><?= $row['auth_token'] ?></td>
+                            <td><?= $row['socket_token'] ?></td>
+                            <td><?= $row['fcm_token'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

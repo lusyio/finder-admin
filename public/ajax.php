@@ -251,3 +251,45 @@ if ($_POST['action'] == 'updateUserLocation') {
     exit;
 }
 
+if ($_POST['action'] == 'sendPush') {
+    require __DIR__ . '/../../vendor/autoload.php';
+    $type = filter_var($_POST['type'], FILTER_SANITIZE_STRING);
+    $from = filter_var($_POST['from'], FILTER_SANITIZE_NUMBER_INT);
+    $to = filter_var($_POST['to'], FILTER_SANITIZE_NUMBER_INT);
+    $fcm = filter_var($_POST['fcm'], FILTER_SANITIZE_STRING);
+    $fcm = trim($fcm);
+    $userQuery = $db->firstValue("SELECT COUNT(*) FROM user_auth WHERE user_id = :userId", [':userId' => $to]);
+    if ($userQuery == 0) {
+        echo "Для пользователя " . $to . " не установлены данные авторизации. Нужно авторизоваться в приложении с данными этого пользователя";
+        exit();
+    }
+    if ($fcm != '') {
+        $db->query("UPDATE user_auth SET fcm_token = :fcm WHERE user_id = :userId", [':fcm' => $fcm, ':userId' => $to]);
+        echo "Пользователю " . $to . " присвоен новый FCM токен: ". $fcm . "\r\n";
+    }
+    $rabbit = new \finder\Rabbit();
+    $message = $rabbit->formatPushMessage($type, $from);
+    $rabbit->sendForPush($to, $message);
+    echo "Пользователю " . $to . " отправлено уведомление:\r\n";
+    printf(json_encode($message));
+    exit;
+}
+
+if ($_POST['action'] == 'sendSocket') {
+    require __DIR__ . '/../../vendor/autoload.php';
+    $text = filter_var($_POST['text'], FILTER_SANITIZE_STRING);
+    $from = filter_var($_POST['from'], FILTER_SANITIZE_NUMBER_INT);
+    $to = filter_var($_POST['to'], FILTER_SANITIZE_NUMBER_INT);
+    $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+    $messageToSocket = [
+        'text' => $text,
+        'id' => $id,
+        'time' => time(),
+    ];
+    $rabbit = new \finder\Rabbit();
+    $rabbit->sendForSocket(json_encode($messageToSocket), $from, $to);
+    echo "Отправлено сообщение:\r\n";
+    printf(json_encode($messageToSocket));
+    exit;
+}
+
