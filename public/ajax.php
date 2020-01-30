@@ -269,7 +269,7 @@ if ($_POST['action'] == 'sendPush') {
     }
     $rabbit = new \finder\Rabbit();
     $message = $rabbit->formatPushMessage($type, $from);
-    $rabbit->sendForPush($to, $message);
+    $rabbit->sendForPush($to, json_encode($message));
     echo "Пользователю " . $to . " отправлено уведомление:\r\n";
     printf(json_encode($message));
     exit;
