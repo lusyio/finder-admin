@@ -282,9 +282,10 @@ if ($_POST['action'] == 'sendSocket') {
     $to = filter_var($_POST['to'], FILTER_SANITIZE_NUMBER_INT);
     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
     $messageToSocket = [
-        'text' => $text,
-        'id' => $id,
-        'time' => time(),
+        'messageText' => $text,
+        'author' => $from,
+        'timestamp' => time(),
+        'messageId' => $id,
     ];
     $rabbit = new \finder\Rabbit();
     $rabbit->sendForSocket(json_encode($messageToSocket), $from, $to);
