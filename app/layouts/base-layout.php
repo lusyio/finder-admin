@@ -29,6 +29,10 @@
                     Управление приложением
                     <ul style="list-style: none;">
                         <li class="nav-item">
+                            <a class="nav-link" href="/tariffs">
+                                Тарифы
+                            </a>
+                        </li><li class="nav-item">
                             <a class="nav-link" href="/categories">
                                 Категории
                             </a>

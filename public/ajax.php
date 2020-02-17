@@ -294,3 +294,22 @@ if ($_POST['action'] == 'sendSocket') {
     exit;
 }
 
+if ($_POST['action'] == 'updateTariffs') {
+    if (isset($_POST['tariffs'][0])) {
+        unset($_POST['tariffs'][0]);
+    }
+    $tariffsQuery = $db->allRows("SELECT id FROM tariffs");
+    $tariffs = [];
+    foreach ($tariffsQuery as $tariffResult) {
+        $tariffs[] = $tariffResult['id'];
+    }
+    foreach ($_POST['tariffs'] as $tariffId => $tariffCost) {
+        if (!in_array($tariffId, $tariffs)) {
+            continue;
+        }
+        $db->query("UPDATE tariffs SET cost = :cost WHERE id = :tariffId", [':cost' => $tariffCost, ':tariffId' => $tariffId]);
+    }
+    echo 1;
+    exit;
+}
+
