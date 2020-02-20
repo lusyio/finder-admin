@@ -6,6 +6,8 @@ if (!isset($_SESSION['auth']) || !$_SESSION['auth']) {
     exit();
 }
 
+require __DIR__ . '/../../vendor/autoload.php';
+
 // Загрузка параметров подключения к базе данных
 $dbConfig = parse_ini_file("../app/config/db.ini");
 

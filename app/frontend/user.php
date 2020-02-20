@@ -17,85 +17,110 @@
                 </form>
             </div>
         </div>
-        <?php if (!is_null($userData)): ?>
-            <div class="row p-3">
-                <div class="col-6">
-                    <p class="h3 pl-5"><?= $userData['user_name'] ?></p>
-                    <table class="table table-striped mt-3">
-                        <tbody>
-                        <tr>
-                            <th scope="row">Телефон</th>
-                            <td><?= $userData['user_phone'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Email</th>
-                            <td><?= $userData['user_email'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Пол</th>
-                            <td><?= $userData['user_sex'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Дата рождения</th>
-                            <td><?= $userData['user_birthdate'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Рост</th>
-                            <td><?= $userData['user_height'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Цвет волос</th>
-                            <td><?= $userData['user_hair_color'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Цвет глаз</th>
-                            <td><?= $userData['user_eye_color'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Телосложение</th>
-                            <td><?= $userData['user_body_type'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Интересы</th>
-                            <td><?= implode(',', decodeBitString($userData['user_interests'])) ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Провести время</th>
-                            <td><?= implode(',', decodeBitString($userData['user_timespend'])) ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Город</th>
-                            <td><?= $userData['user_city'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Широта</th>
-                            <td><?= $userData['lat'] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Долгота</th>
-                            <td><?= $userData['lng'] ?></td>
-                        </tr>
-                        </tbody>
-                    </table>
+        <?php if ($isUserExist): ?>
+            <p class="h3 pl-5 mb-3"><?= $user->name; ?></p>
+
+            <ul class="nav nav-tabs" id="userTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true">Личные данные</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#map" role="tab" aria-controls="map" aria-selected="false">Карта</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#photos" role="tab" aria-controls="photos" aria-selected="false">Фотографии</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="userTabContent">
+                <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <p class="mb-1">Телефон: <?= $user->phone ?></p>
+                            <p class="mb-3">Email: <?= $user->email ?></p>
+                            <p class="mb-1">Пол: <?= $user->sex ?></p>
+                            <p class="mb-1">Дата рождения: <?= $user->birthDate ?> (возраст: <?= $user->getAge() ?>)</p>
+                            <p class="mb-1">Рост: <?= $user->height ?></p>
+                            <p class="mb-1">Цвет волос: <?= $user->hairColor ?></p>
+                            <p class="mb-1">Цвет глаз: <?= $user->eyeColor ?></p>
+                            <p class="mb-3">Телосложение: <?= $user->bodyStructure ?></p>
+                            <p class="mb-1">Интересы: <?= implode(',', finder\User::decodeBitString($user->interests)) ?></p>
+                            <p class="mb-3">Провести время: <?= implode(',', finder\User::decodeBitString($user->spendTime)) ?></p>
+                            <p class="mb-1">Город: <?= $cityName ?> (id: <?= $user->cityId ?>)</p>
+                            <p class="mb-1">Широта: <?= $user->lat ?></p>
+                            <p class="mb-3">Долгота: <?= $user->lng ?></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <p class="h3 pl-5">Фотографии</p>
-                    <table class="table table-striped mt-3">
-                        <thead>
-                        <tr>
-                            <th scope="col">Имя файла</th>
-                            <th scope="col">Путь</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($userPhotos as $photo): ?>
-                            <tr>
-                                <th scope="row"><?= $photo['photo_name'] ?></th>
-                                <td><?= $photo['photo_url'] ?></td>
-                            </tr>
+                <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="map-tab">
+                    <?php if (count($user->photos) == 0): ?>
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <p class="h5 text-center">
+                                Нет загруженных фотографий
+                            </p>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <div class="row mt-3">
+                        <?php foreach ($user->photos as $photo): ?>
+                        <div class="col-6">
+                            <figure class="text-center">
+                                <a target="_blank" href="https://finderdating.ru/<?= $photo['url'] ?>">
+                                    <img class="w-100" src="https://finderdating.ru/<?= $photo['url'] ?>">
+                                </a>
+                                <figcaption class="text-center">id:<?= $photo['id'] ?> | порядок: <?= $photo['order'] ?> | <?= $photo['url'] ?></figcaption>
+                            </figure>
+                        </div>
                         <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="photos-tab">
+                    <div class="row">
+                        <div id="noGeo" class="col-12 mt-3">
+                            <p class="h5 text-center">
+                                Нет данных о геолокации пользователя
+                            </p>
+                        </div>
+                        <div id="geo" class="col-12 w-100" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+<?php if ($user->lat && $user->lng): ?>
+            <script>
+                Element.prototype.remove = function() {
+                    this.parentElement.removeChild(this);
+                };
+                NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+                    for(var i = this.length - 1; i >= 0; i--) {
+                        if(this[i] && this[i].parentElement) {
+                            this[i].parentElement.removeChild(this[i]);
+                        }
+                    }
+                };
+                document.getElementById("noGeo").remove();
+                function initMap() {
+                    var geoPoint = {
+                        lat:<?php echo $user->lat;?>,
+                        lng:<?php echo $user->lng;?>
+                    };
+                    var mapOptions = {
+                        center:geoPoint,
+                        scrollwheel:true,
+                        zoom:12
+                    };
+                    map = new google.maps.Map(document.getElementById('geo'),mapOptions);
+                    markers = [];
+                    var marker = new google.maps.Marker(
+                        {position:{lat:<?php echo $user->lat;?>,lng:<?php echo $user->lng;?>},map:map}
+                    );
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?&libraries=drawing&key=AIzaSyCleZZMKiDEY1pMVIEhXD8LgMvM0uKHYbI&callback=initMap"></script>
+<?php endif; ?>
+        <?php elseif (isset($userId)): ?>
+            <div class="row text-center">
+                <div class="col-12 text-center">
+                <p class="h2">Пользователь с id <?= $userId ?> не найден</p>
                 </div>
             </div>
         <?php endif; ?>
