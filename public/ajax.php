@@ -313,3 +313,42 @@ if ($_POST['action'] == 'updateTariffs') {
     exit;
 }
 
+if ($_POST['action'] == 'users') {
+    $limit = isset($_POST['limit']) ? intval($_POST['limit']) : 10;
+    $offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
+    $search = isset($_POST['search']) ? $_POST['search'] : '';
+    $totalNotFiltered = $db->firstValue("SELECT COUNT(*) FROM user_data");
+    if ($search == '') {
+        $rows = $db->allRows("SELECT user_id AS id, user_name AS name, user_phone AS phone, user_email AS email, user_city AS city, is_blocked AS block FROM user_data LIMIT :limit OFFSET :offset", [':limit' => $limit, ':offset' => $offset]);
+        $total = $db->firstValue("SELECT COUNT(*) FROM user_data");
+    } else {
+        $search = '%' . $search . '%';
+        $rows = $db->allRows("SELECT user_id AS id, user_name AS name, user_phone AS phone, user_email AS email, user_city AS city, is_blocked AS block FROM user_data WHERE user_name LIKE :search OR user_email LIKE :search  OR user_phone LIKE :search LIMIT :limit OFFSET :offset", [':limit' => $limit, ':offset' => $offset, ':search' => $search]);
+        $total = $db->firstValue("SELECT COUNT(*) FROM user_data WHERE user_name LIKE :search OR user_email LIKE :search OR user_phone LIKE :search", [':search' => $search]);
+    }
+    $citiesQuery = $db->allRows("SELECT area_id, area_name FROM areas");
+    $cities = [];
+    foreach ($citiesQuery as $city) {
+        $cities[$city['area_id']] = $city['area_name'];
+    }
+    foreach ($rows as &$row) {
+        if (isset($cities[$row['city']])) {
+            $row['city'] = $cities[$row['city']];
+        } else {
+            $cities[$row['city']] = 'Заграница';
+        }
+        if ($row['block'] > 0) {
+            $row['block'] = 'Да';
+        } else {
+            $row['block'] = 'Нет';
+        }
+    }
+    $result = [
+        'total' => intval($total),
+        'totalNotFiltered' => intval($totalNotFiltered),
+        'rows' => $rows
+    ];
+
+    echo json_encode($result);
+}
+
