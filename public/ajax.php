@@ -352,3 +352,30 @@ if ($_POST['action'] == 'users') {
     echo json_encode($result);
 }
 
+if ($_POST['action'] == 'blockUser') {
+    require __DIR__ . '/../../vendor/autoload.php';
+
+    $reason = filter_var($_POST['reason'], FILTER_SANITIZE_STRING);
+    $userId = filter_var($_POST['userId'], FILTER_SANITIZE_NUMBER_INT);
+    $user = new \finder\User($userId);
+    if($user->blockUser($reason)) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+
+if ($_POST['action'] == 'unblockUser') {
+    require __DIR__ . '/../../vendor/autoload.php';
+
+    $reason = filter_var($_POST['reason'], FILTER_SANITIZE_STRING);
+    $userId = filter_var($_POST['userId'], FILTER_SANITIZE_NUMBER_INT);
+    $user = new \finder\User($userId);
+    if($user->unblockUser($reason)) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+
+

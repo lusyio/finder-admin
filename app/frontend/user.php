@@ -29,7 +29,7 @@
         </div>
         <?php endif; ?>
         <?php if ($isUserExist): ?>
-            <p class="h3"><a class="mr-3" href="/dev/user">←</a><?= $user->name; ?></p>
+            <p class="h3"><a class="mr-3" href="/dev/user">←</a><?= $user->name; ?><?= ($user->isBlocked) ? '<span class=" ml-3 badge badge-danger">Заблокирован</span>' : '' ?></p>
 
             <ul class="nav nav-tabs" id="userTab" role="tablist">
                 <li class="nav-item">
@@ -51,7 +51,7 @@
             <div class="tab-content" id="userTabContent">
                 <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
                     <div class="row mt-3">
-                        <div class="col-12">
+                        <div class="col-lg-7 col-12">
                             <p class="mb-1">Телефон: <?= $user->phone ?></p>
                             <p class="mb-3">Email: <?= $user->email ?></p>
                             <p class="mb-1">Пол: <?= $user->sex ?></p>
@@ -65,6 +65,17 @@
                             <p class="mb-1">Город: <?= $cityName ?> (id: <?= $user->cityId ?>)</p>
                             <p class="mb-1">Широта: <?= $user->lat ?></p>
                             <p class="mb-3">Долгота: <?= $user->lng ?></p>
+                        </div>
+                        <div class="col-lg-5 col-12">
+                            <button class="btn btn-outline-danger w-100" type="button" data-toggle="collapse" data-target="#collapseBlock" aria-expanded="false" aria-controls="collapseBlock">
+                                <?= ($user->isBlocked) ? 'Разблокировать' : 'Заблокировать' ?> пользователя
+                            </button>
+                            <div class="collapse" id="collapseBlock">
+                                 <div class="card card-body">
+                                    <label for="blockReason">Причина <?= ($user->isBlocked) ? 'разблокировки' : 'блокировки' ?>*</label><textarea id="blockReason" class="form-control" rows="5"></textarea>
+                                    <button id="blockUser" class="btn btn-danger disabled mt-3" data-user-id="<?= $user->userId ?>" data-block-action="<?= ($user->isBlocked) ? 'unblock' : 'block' ?>"><?= ($user->isBlocked) ? 'Разблокировать' : 'Заблокировать' ?></button>
+                                 </div>
+                             </div>
                         </div>
                     </div>
                 </div>
