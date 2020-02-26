@@ -1,8 +1,6 @@
-<div class="row">
-    <div class="col-12 bg-custom pb-5 base-frame">
         <div class="row">
             <div class="col-12">
-                <p class="h1 text-center mt-3">Тарифы</p>
+                <p class="h1 mt-3">Тарифы</p>
             </div>
         </div>
         <div class="row mt-5">
@@ -16,5 +14,3 @@
                 <button id="saveTariffs" class="btn btn-outline-primary">Сохранить</button>
             </div>
         </div>
-    </div>
-</div>

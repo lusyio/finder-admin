@@ -1,8 +1,6 @@
-<div class="row">
-    <div class="col-12 bg-custom pb-5 base-frame">
         <div class="row">
             <div class="col-12">
-                <p class="h1 text-center mt-3">Тестирование сокетов</p>
+                <p class="h1 mt-3">Тестирование сокетов</p>
             </div>
         </div>
         <div class="row mt-5">
@@ -37,4 +35,3 @@
             <div class="col-6">
                 <textarea class="form-control" rows="20" id="results"></textarea>
             </div>
-        </div>

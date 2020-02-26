@@ -1,5 +1,4 @@
-<div class="row">
-    <div class="col-12 bg-custom pb-5 base-frame">
+
         <div class="row">
             <div class="alert alert-secondary w-75 mb-0 ml-auto mr-auto mt-3" role="alert">
                 Названия здесь являются вспомогательными для разработчиков, отображаемые в приложения названия должны
@@ -263,5 +262,3 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>

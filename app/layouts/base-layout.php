@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -96,7 +96,11 @@
     <!--        </nav>-->
     <!--    </header>-->
     <div class="container-fluid" id="container">
+        <div class="row">
+            <div class="col-12 pb-5 base-frame">
         <?php echo $content ?>
+            </div>
+        </div>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"

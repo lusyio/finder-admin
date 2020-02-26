@@ -1,8 +1,6 @@
-<div class="row">
-    <div class="col-12 bg-custom pb-5 base-frame">
         <div class="row">
             <div class="col-12">
-                <p class="h1 text-center mt-3">Таблицы соответствия идентификаторов</p>
+                <p class="h1 mt-3">Таблицы соответствия идентификаторов</p>
                 <div class="alert alert-secondary w-75 mb-0 ml-auto mr-auto mt-5 mb-3" role="alert">
                     <i>
                         Стадия разработки: идентификаторы могут поменяться
@@ -123,5 +121,3 @@
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>
-</div>
