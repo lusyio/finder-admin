@@ -1,8 +1,6 @@
-<div class="row">
-    <div class="col-12 bg-custom pb-5 base-frame">
         <div class="row">
             <div class="col-12">
-                <p class="h1 text-center mt-3">Анкета пользователя</p>
+                <p class="h1 mt-3">Пользователи</p>
             </div>
         </div>
         <div class="row p-3">

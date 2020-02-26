@@ -1,5 +1,62 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-Regular.eot');
+    src: local('Gilroy Regular'), local('Gilroy-Regular'),
+    url('/fonts/Gilroy-Regular.eot') format('embedded-opentype'),
+    url('/fonts/Gilroy-Regular.woff') format('woff'),
+    url('/fonts/Gilroy-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-Bold.eot');
+    src: local('Gilroy Bold'), local('Gilroy-Bold'),
+    url('/fonts/Gilroy-Bold.eot') format('embedded-opentype'),
+    url('/fonts/Gilroy-Bold.woff') format('woff'),
+    url('/fonts/Gilroy-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-Medium.eot');
+    src: local('Gilroy Medium'), local('Gilroy-Medium'),
+    url('/fonts/Gilroy-Medium.eot') format('embedded-opentype'),
+    url('/fonts/Gilroy-Medium.woff') format('woff'),
+    url('/fonts/Gilroy-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+html, body {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+}
+
 .main-content {
     margin-left: 300px;
+}
+
+.left-menu .nav-item {
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 16px;
+}
+
+.left-menu span.nav-item {
+    display: block;
+}
+
+.left-menu .nav-link {
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.left-menu {
+    line-height: 19px;
 }
 
 .navbar-vertical.navbar-expand-md {
@@ -9,13 +66,19 @@
     bottom: 0;
     width: 100%;
     max-width: 300px;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
     overflow-y: auto;
     z-index: 100;
-    border-right: 1px solid #f2f2f2;
+    font-weight: bold;
 }
 
+li li a.nav-link:before {
+    content: "-";
+    display: inline;
+}
+
+li li a.nav-link {
+    display: inline;
+}
 .navbar-vertical.navbar-expand-md .navbar-brand {
     display: block;
     text-align: center;
@@ -30,8 +93,12 @@
     padding-right: 15px;
 }
 
-.navbar-brand li {
-    font-size: 1rem;
+.left-menu li {
+    list-style: none;
+}
+
+.left-menu ul {
+    padding: 0;
 }
 
 .bg-custom{
@@ -77,4 +144,41 @@ li {
 .invalid {
     border-width: 1px;
     border-color: red;
+}
+
+.table thead th {
+    border-top: #000000 0;
+    border-bottom: 1px solid #000000;
+}
+
+.table td {
+    border-top: 1px solid #767676;
+    padding: .5rem;
+}
+
+.table tr th {
+    border-top: 1px solid #767676;
+}
+
+.navbar-light .navbar-toggler {
+    color: #767676;
+    border-width: 0;
+}
+
+@media (max-width: 767px) {
+    nav.navbar {
+        /*position: absolute;*/
+        top: 0;
+        bottom: 0;
+        display: block;
+        max-width: none!important;
+    }
+    .navbar-vertical.navbar-expand-md {
+        display: block;
+        position: relative;
+    }
+    .main-content {
+        margin-left: 0;
+        margin-top: 0;
+    }
 }

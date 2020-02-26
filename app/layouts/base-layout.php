@@ -8,26 +8,28 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css?ver=1">
+    <link rel="stylesheet" href="/css/style.css?ver=2">
     <?php echo $css ?>
     <title><?php echo $title ?></title>
 </head>
 <body class="d-block">
 <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light">
-    <div class="container-fluid">
-        <a href="/" class="h3 text-dark nav-link pl-2">
-            Finder admin
+        <a href="/" class="h3 text-dark pl-2 d-inline-block">
+            <img src="/images/finder-logo.svg">
         </a>
-        <div class="left-menu">
+        <button class="navbar-toggler float-right collapsed" type="button" data-toggle="collapse" data-target=".left-menu" aria-controls="left-menu" aria-expanded="true" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="left-menu collapse navbar-collapse">
             <ul class="navbar-brand navbar-nav text-left">
-                <li class="nav-item">
+                <li class="nav-item mt-4">
                     <a class="nav-link" href="/">
                         Главная страница
                     </a>
                 </li>
                 <li class="nav-link">
-                    Управление приложением
-                    <ul style="list-style: none;">
+                    <span class="nav-item">Управление приложением</span>
+                    <ul>
                         <li class="nav-item">
                             <a class="nav-link" href="/tariffs">
                                 Тарифы
@@ -45,8 +47,8 @@
                     </ul>
                 </li>
                 <li class="nav-link">
-                    Разработчикам
-                    <ul style="list-style: none;">
+                    <span class="nav-item">Разработчикам</span>
+                    <ul>
                         <li class="nav-item">
                             <a class="nav-link" href="/dev/idtables">
                                 Таблицы соответствий
@@ -85,7 +87,6 @@
                 </li>
             </ul>
         </div>
-    </div>
 </nav>
 <div class="main-content">
     <!--    <header class="site-header navbar-static-top navbar-light" role="banner">-->
