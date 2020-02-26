@@ -1,7 +1,8 @@
 <?php
 $userData = null;
+$isUserProfile = isset($_GET['user']);
 $isUserExist = false;
-if (isset($_GET['user'])) {
+if ($isUserProfile) {
     $userId = filter_var($_GET['user'], FILTER_SANITIZE_NUMBER_INT);
     $isUserExist = (bool)$db->firstValue("SELECT COUNT(*) FROM user_data WHERE user_id = :userId", [':userId' => $userId]);
     if ($isUserExist) {
@@ -12,5 +13,7 @@ if (isset($_GET['user'])) {
             $cityName = $db->firstRow("SELECT area_name FROM areas WHERE area_id = :cityId", [':cityId' => $user->cityId]);
             $cityName = $cityName['area_name'];
         }
+        $payments = $user->getPayments();
+        $log = $user->getLog();
     }
 }

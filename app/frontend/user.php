@@ -3,20 +3,33 @@
                 <p class="h1 mt-3">Пользователи</p>
             </div>
         </div>
-        <div class="row p-3">
-            <div class="col-6">
-                <form method="get">
-                    <div class="form-group">
-                        <label for="userIdInput" class="form">ID пользователя</label>
-                        <input type="text" name="user" class="form-control" id="userIdInput"
-                               placeholder="id пользователя">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Перейти</button>
-                </form>
-            </div>
+        <?php if (!$isUserProfile): ?>
+        <div class="row ">
+            <div class="col-12">
+                <table
+                        id="usersTable"
+                        data-toggle="table"
+                        data-locale="ru-RU"
+                        data-ajax="ajaxRequest"
+                        data-search="true"
+                        data-side-pagination="server"
+                        data-classes="table table-hover"
+                        data-pagination="true">
+                    <thead>
+                    <tr>
+                        <th data-field="id">ID</th>
+                        <th data-field="name" data-formatter="nameFormatter">Имя пользователя</th>
+                        <th data-field="phone">Телефон</th>
+                        <th data-field="email">E-mail</th>
+                        <th data-field="city">Город</th>
+                        <th data-field="block">Бан</th>
+                    </tr>
+                    </thead>
+                </table>
         </div>
+        <?php endif; ?>
         <?php if ($isUserExist): ?>
-            <p class="h3 pl-5 mb-3"><?= $user->name; ?></p>
+            <p class="h3"><a class="mr-3" href="/dev/user">←</a><?= $user->name; ?></p>
 
             <ul class="nav nav-tabs" id="userTab" role="tablist">
                 <li class="nav-item">
@@ -27,6 +40,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#photos" role="tab" aria-controls="photos" aria-selected="false">Фотографии</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#payments" role="tab" aria-controls="payments" aria-selected="false">Платежи</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" id="log-tab" data-toggle="tab" href="#log" role="tab" aria-controls="log" aria-selected="false">История действий</a>
                 </li>
             </ul>
             <div class="tab-content" id="userTabContent">
@@ -79,7 +98,85 @@
                                 Нет данных о геолокации пользователя
                             </p>
                         </div>
-                        <div id="geo" class="col-12 w-100" style="height: 400px;"></div>
+                        <div id="geo" class="col-12 w-100" style="min-height: 400px; height:70vh"></div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="payments" role="tabpanel" aria-labelledby="payments-tab">
+                    <div class="row">
+                        <div  class="col-12 mt-3">
+                        <?php if (count($payments) == 0): ?>
+                            <p class="h5 text-center">
+                                Нет платежей
+                            </p>
+                        <?php else: ?>
+                            <table class="table mt-3"
+                                data-toggle="table"
+                                data-show-columns="true"
+                                data-detail-view="true"
+                                data-detail-formatter="detailFormatter"
+                                data-classes="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">ID заказа</th>
+                                    <th scope="col">Тариф</th>
+                                    <th scope="col">Сумма</th>
+                                    <th scope="col">ID платежа</th>
+                                    <th scope="col">Статус платежа</th>
+                                    <th scope="col">Статус в банке</th>
+                                    <th scope="col">Дата создания</th>
+                                    <th scope="col">Дата последнего обновления</th>
+                                    <th scope="col" data-visible="false" data-field="payment-log">История заказа</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($payments as $payment): ?>
+                                    <tr>
+                                        <th scope="row"><?= $payment['order']['orderId'] ?></th>
+                                        <th><?= $payment['order']['tariff_id'] ?></th>
+                                        <th><?= $payment['order']['amount'] / 100 ?> руб.</th>
+                                        <th><?= $payment['order']['paymentId'] ?></th>
+                                        <th><?= $payment['order']['finder_status'] ?></th>
+                                        <th><?= $payment['order']['bank_status'] ?></th>
+                                        <th><?= date ('d.m.y H:i', $payment['order']['create_date']) ?></th>
+                                        <th><?= date ('d.m.y H:i', $payment['order']['update_date']) ?></th>
+                                        <th>
+                                            <?php foreach ($payment['log'] as $paymentLog): ?>
+                                            <p><?= date('d.m.y', $paymentLog['log_date']) ?> <?= $paymentLog['log_comment'] ?></p>
+                                            <?php endforeach; ?>
+                                        </th>
+                                    </tr>
+                            <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="log" role="tabpanel" aria-labelledby="log-tab">
+                    <div class="row">
+                        <div  class="col-12 mt-3">
+                            <table class="table mt-3"
+                                data-toggle="table"
+                                data-classes="table"
+                                data-locale="ru-RU">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-width="100">Дата</th>
+                                        <th scope="col">Действие</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php if (is_array($log)): ?>
+                                    <?php foreach ($log as $logEntity): ?>
+                                    <tr>
+                                        <th scope="row"><?= date ('d.m.y H:i', $logEntity['log_date']) ?></th>
+                                        <th><?= $logEntity['log_comment'] ?></th>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,6 +209,10 @@
                         {position:{lat:<?php echo $user->lat;?>,lng:<?php echo $user->lng;?>},map:map}
                     );
                 }
+
+                function detailFormatter(index, row) {
+                    return row['payment-log'];
+                }
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?&libraries=drawing&key=AIzaSyCleZZMKiDEY1pMVIEhXD8LgMvM0uKHYbI&callback=initMap"></script>
 <?php endif; ?>
@@ -122,4 +223,30 @@
                 </div>
             </div>
         <?php endif; ?>
-    </div>
+        <?php if (!$isUserProfile): ?>
+        <script>
+            function nameFormatter(value, data) {
+                return '<a href ="?user=' + data.id + '">' + value + '</a>'
+            }
+            function ajaxRequest(params) {
+                console.log(params);
+                var url = '/ajax';
+                // $.get(url + '?' + $.param(params.data)).then(function (res) {
+                //     params.success(res)
+                // });
+                params.data.action = 'users';
+                $.ajax({
+                    type: "POST",
+                    dataType: 'json',
+                    url: "/ajax",
+                    data: params.data,
+                    success: function (response) {
+
+                    }
+                }).then(function (res) {
+                    console.log(res);
+                    params.success(res);
+                });
+            }
+        </script>
+        <?php endif;?>
