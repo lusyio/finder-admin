@@ -9,10 +9,10 @@
             </div>
 
         </div>
-        <div class="row p-3">
-            <div class="col-6">
+        <div class="row">
+            <div class="col-lg-6 col-12">
                 <p class="h3 pl-5">Интересы</p>
-                <table class="table table-striped mt-3">
+                <table class="table table-responsive table-striped mt-3">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -33,9 +33,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-6">
+            <div class="col-lg-6 col-12">
                 <p class="h3 pl-5">Категории интересов</p>
-                <table class="table table-striped mt-3">
+                <table class="table table-responsive table-striped mt-3">
                     <thead>
                     <tr>
 
@@ -55,9 +55,9 @@
             </div>
         </div>
         <div class="row mt-5 p-3">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
                 <p class="h3 pl-5">Как провести время</p>
-                <table class="table table-striped mt-3">
+                <table class="table table-responsive table-striped mt-3">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -78,9 +78,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
                 <p class="h3 pl-5">Категории Как провести время</p>
-                <table class="table table-striped mt-3">
+                <table class="table table-responsive table-striped mt-3">
                     <thead>
                     <tr>
                         <th scope="col">ID категории</th>
@@ -100,9 +100,9 @@
         </div>
         <div class="row mt-5 p-3">
             <?php foreach ($simpleEnums as $key => $enum): ?>
-                <div class="col-3">
+                <div class="col-lg-3 col-md-6 col-12">
                     <p class="h3 pl-5"><?= $enumNames[$key]; ?></p>
-                    <table class="table table-striped mt-3">
+                    <table class="table table-responsive table-striped mt-3">
                         <thead>
                         <tr>
                             <th scope="col">ID</th>

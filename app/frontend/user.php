@@ -91,7 +91,7 @@
                     <?php endif; ?>
                     <div class="row mt-3">
                         <?php foreach ($user->photos as $photo): ?>
-                        <div class="col-6">
+                        <div class="col-lg-6 col-12">
                             <figure class="text-center">
                                 <a target="_blank" href="https://finderdating.ru/<?= $photo['url'] ?>">
                                     <img class="w-100" src="https://finderdating.ru/<?= $photo['url'] ?>">

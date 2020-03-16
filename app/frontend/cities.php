@@ -3,8 +3,8 @@
                 <p class="h1 mt-3">Города</p>
             </div>
         </div>
-        <div class="row p-3">
-            <div class="col-6">
+        <div class="row">
+            <div class="col-lg-6 col-12">
                 <p>
                     <button class="btn btn-outline-primary" type="button" data-toggle="collapse"
                             data-target="#addCityCollapse"
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="row p-3">
+        <div class="row">
             <div class="col-12">
                 <table data-toggle="table" data-pagination="true" data-locale="ru-RU" data-auto-refresh="true" id="citiesTable">
                     <thead>
@@ -62,7 +62,7 @@
                 </table>
             </div>
         </div>
-        <div class="row p-3">
+        <div class="row">
             <div class="col-12">
                 <button class="btn btn-outline-primary" type="button" data-toggle="collapse"
                         data-target="#csvCitiesCollapse"
@@ -76,8 +76,8 @@
                 </button>
             </div>
         </div>
-        <div class="row p-3">
-            <div class="collapse col-6" id="csvCitiesCollapse">
+        <div class="row">
+            <div class="collapse col-lg-6 col-12" id="csvCitiesCollapse">
                 <p>id города, название города, id региона</p>
 
                 <p>
@@ -89,7 +89,7 @@
                     <?php endforeach;?>
                 </code>
             </div>
-            <div class="collapse col-6" id="csvRegionsCollapse">
+            <div class="collapse col-lg-6 col-12" id="csvRegionsCollapse">
                 <p>id региона, название региона, id страны (Россия - id 1)</p>
                 <p>
                 <button class="btn btn-outline-secondary select-csv" data-id-to-select="csvRegions">Выделить всё</button>

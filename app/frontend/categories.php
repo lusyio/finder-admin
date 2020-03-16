@@ -169,7 +169,7 @@
                                     <?php endforeach; ?>
                                 </ul>
                                 <div class="row mt-3">
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-12">
                                         <div class="input-group">
                                             <input type="text" class="form-control add-item-input"
                                                    placeholder="Название элемента">

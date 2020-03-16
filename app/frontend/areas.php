@@ -3,12 +3,12 @@
                 <p class="h1 mt-3">Зоны геолокации</p>
             </div>
         </div>
-        <div class="row p-3">
+        <div class="row">
             <div class="col-12">
-                <div class="d-flex justify-content-between">
-                    <button class="btn btn-secondary " id="howTo" data-toggle="modal" data-target=".how-to-modal">Как работать с зонами</button>
-                    <button class="btn btn-secondary " id="delete-button" disabled>Удалить выбранную зону</button>
-                    <button class="btn btn-secondary " id="updateUserLocation">Обновить города для всех пользователей</button>
+                <div class="d-flex flex-wrap justify-content-between">
+                    <button class="btn btn-secondary mb-lg-0 mb-2" id="howTo" data-toggle="modal" data-target=".how-to-modal">Как работать с зонами</button>
+                    <button class="btn btn-secondary mb-lg-0 mb-2" id="delete-button" disabled>Удалить выбранную зону</button>
+                    <button class="btn btn-secondary mb-lg-0 mb-2" id="updateUserLocation">Обновить города для всех пользователей</button>
                 </div>
                 <div class="well">
                     <div id="map_canvas"></div>

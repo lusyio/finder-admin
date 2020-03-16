@@ -4,7 +4,7 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-6">
+            <div class="col-lg-6 col-12">
                 <form>
                     <div class="form-group">
                         <select class="form-control" id="type">
@@ -44,6 +44,6 @@
                     <button class="btn btn-outline-primary" id="sendPush">Отправить уведомление</button>
                 </form>
             </div>
-            <div class="col-6">
+            <div class="col-lg-6 col-12">
                 <textarea class="form-control" rows="20" id="results"></textarea>
             </div>
