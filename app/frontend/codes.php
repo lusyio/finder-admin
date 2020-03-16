@@ -5,7 +5,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg- col-12">
+            <div class="col-lg-6 col-12">
                 <p class="h3 pl-5">Смс-коды регистрации</p>
                 <table class="table table-responsive table-striped mt-3">
                     <thead>
@@ -26,7 +26,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-6 col-6">
+            <div class="col-lg-6 col-12">
                 <p class="h3 pl-5">Смс-коды восстановления пароля</p>
                 <table class="table table-responsive table-striped mt-3">
                     <thead>
