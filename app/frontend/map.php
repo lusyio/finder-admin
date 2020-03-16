@@ -28,7 +28,7 @@
                 lng:<?php echo $user['lng'];?>
             },
             map:map,
-            label:'id:<?php echo $user['user_id'] ?>, <?php echo date('d.m h:i', $user['user_last_visit']) ?>',
+            label:'id:<?php echo $user['user_id'] ?>, <?php echo date('d.m h:i', $user['user_last_visit']) ?>, sex: <?php echo $user['user_sex'] ?>',
             icon: {
                 path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
                 fillColor: "red",
