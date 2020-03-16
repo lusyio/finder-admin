@@ -77,6 +77,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/map">
+                        Карта пользователей
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/dev/photos">
                         Загруженные фотографии
                     </a>

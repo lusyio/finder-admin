@@ -28,6 +28,7 @@ $routes = [
     '/cities' => 'cities',
     '/areas' => 'areas',
     '/tariffs' => 'tariffs',
+    '/map' => 'map',
     '/' => 'dashboard'
 ];
 
@@ -44,6 +45,7 @@ $titles = [
     'socket' => 'Тестирование веб-сокетов',
     'push' => 'Тестирование push-уведомлений',
     'tariffs' => 'Тарифы',
+    'map' => 'Карта пользователей',
 ];
 
 // Шаблоны страниц: ключи массива - название страницы из $routes, значения - название шаблона
@@ -60,6 +62,7 @@ $layouts = [
     'socket' => 'base-layout',
     'push' => 'base-layout',
     'tariffs' => 'base-layout',
+    'map' => 'base-layout',
 ];
 
 // получаем строку запроса
