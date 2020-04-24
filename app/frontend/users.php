@@ -3,10 +3,10 @@
                 <p class="h1 mt-3">Данные авторизации пользователей</p>
             </div>
         </div>
-        <div class="row p-3">
-            <div class="col-6">
+        <div class="row">
+            <div class="col-lg-6 col-12">
                 <p class="h3 pl-5">Смс-коды регистрации</p>
-                <table class="table table-striped mt-3">
+                <table class="table table-responsive table-striped mt-3">
                     <thead>
                     <tr>
                         <th scope="col">Телефон</th>
@@ -25,9 +25,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-6">
+            <div class="col--lg-6 col-12">
                 <p class="h3 pl-5">Токены авторизации</p>
-                <table class="table table-striped mt-3">
+                <table class="table table-responsive table-striped mt-3">
                     <thead>
                     <tr>
                         <th scope="col">ID пользователя</th>
@@ -45,10 +45,10 @@
                 </table>
             </div>
         </div>
-        <div class="row p-3">
-            <div class="col-6">
+        <div class="row">
+            <div class="col-lg-6 col-12">
                 <p class="h3 pl-5">Смс-коды восстановления пароля</p>
-                <table class="table table-striped mt-3">
+                <table class="table table-responsive table-striped mt-3">
                     <thead>
                     <tr>
                         <th scope="col">Телефон / email</th>
