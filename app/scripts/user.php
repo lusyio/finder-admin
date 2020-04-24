@@ -47,5 +47,27 @@
                 }
             })
         }
+        $('#clearLikes').on('click', function () {
+            let alert = $('#clearAlert');
+            let userId = $(this).data('user-id');
+            $.ajax({
+                type: "POST",
+                url: "/ajax",
+                data: {
+                    action: 'clearLikes',
+                    userId: userId,
+                },
+                success: function (response) {
+                    if (response == 1) {
+                        $(alert).css({"height": "auto","display": "block"});
+                        setTimeout(function () {
+                            $(alert).css({"height": "auto","display": "block"});
+                        }, 2000)
+                    } else {
+                        alert('Произошла ошибка')
+                    }
+                }
+            });
+        })
     })
 </script>

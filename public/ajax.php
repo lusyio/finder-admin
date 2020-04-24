@@ -378,4 +378,12 @@ if ($_POST['action'] == 'unblockUser') {
     }
 }
 
+if ($_POST['action'] == 'clearLikes') {
+    require __DIR__ . '/../../vendor/autoload.php';
+
+    $userId = filter_var($_POST['userId'], FILTER_SANITIZE_NUMBER_INT);
+    $db->query("DELETE FROM actions WHERE user_id = :userId", [':userId' => $userId]);
+    echo 1;
+}
+
 

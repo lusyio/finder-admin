@@ -67,6 +67,8 @@
                             <p class="mb-3">Долгота: <?= $user->lng ?></p>
                         </div>
                         <div class="col-lg-5 col-12">
+                            <button class="btn btn-outline-warning w-100" id="clearLikes" data-user-id="<?php echo $userId ?>">Удалить исходящие действия</button>
+                            <div class="alert alert-warning text-center" role="alert" id="clearAlert" style="display: none; height: 0">Исходящие действия очищены</div>
                             <button class="btn btn-outline-danger w-100" type="button" data-toggle="collapse" data-target="#collapseBlock" aria-expanded="false" aria-controls="collapseBlock">
                                 <?= ($user->isBlocked) ? 'Разблокировать' : 'Заблокировать' ?> пользователя
                             </button>
